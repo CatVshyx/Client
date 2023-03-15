@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="productPane" prefHeight="389.0" prefWidth="615.0" styleClass="custom-pane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.controllers.PromotionPopUpController">
+   <children>
+      <AnchorPane fx:id="showConfirm" layoutX="68.0" layoutY="8.0" prefHeight="374.0" prefWidth="526.0" visible="false">
+         <children>
+            <Label fx:id="labelConfirm" layoutX="130.0" layoutY="136.0" text="The promotion was successfully deleted">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/storage/accept.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="closeOK" layoutX="174.0" layoutY="209.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="178.0" styleClass="buttonWhite" text="Ok" AnchorPane.leftAnchor="174.0" AnchorPane.topAnchor="209.0" />
+            <ImageView fitHeight="30.0" fitWidth="21.0" layoutX="505.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering" fx:id="x_close2">
+               <image>
+                  <Image url="@../icons/storage/close.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addDiscPane" layoutX="-5.0" prefHeight="389.0" prefWidth="615.0">
+         <children>
+            <TextField fx:id="productName" editable="false" layoutX="14.0" layoutY="63.0" prefHeight="60.0" prefWidth="355.0" promptText="I..." />
+            <TextField fx:id="discountField" layoutX="206.0" layoutY="166.0" prefHeight="30.0" prefWidth="65.0" />
+            <TextField fx:id="productCategory" editable="false" layoutX="388.0" layoutY="63.0" prefHeight="60.0" prefWidth="200.0" />
+            <TextField fx:id="priceField" editable="false" layoutX="50.0" layoutY="166.0" prefHeight="30.0" prefWidth="95.0" />
+            <Button fx:id="deletePromotion" layoutX="311.0" layoutY="301.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Delete promotion">
+               <graphic>
+                  <ImageView fitHeight="13.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/storage/decline.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="saveChanges" layoutX="143.0" layoutY="301.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Save changes" />
+            <Text layoutX="320.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Label fx:id="currency" layoutX="155.0" layoutY="171.0" opacity="0.6" text="UAH">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="value" layoutX="285.0" layoutY="170.0" opacity="0.6" text="\%">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="579.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering" fx:id="x_close">
+               <image>
+                  <Image url="@../icons/storage/close.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="475.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <DatePicker id="pick" fx:id="dateFrom" layoutX="367.0" layoutY="167.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="90.0" styleClass="datePicker">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </DatePicker>
+            <DatePicker id="pick" fx:id="dateTo" layoutX="509.0" layoutY="167.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="90.0" styleClass="datePicker">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </DatePicker>
+            <Region layoutX="40.0" layoutY="230.0" opacity="0.8" prefHeight="1.0" prefWidth="533.0" style="-fx-background-color: linear-gradient(to bottom right,  #D3F3F5,#A798D9);" AnchorPane.rightAnchor="-3.0" />
+            <Text fx:id="textDelete" layoutX="187.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure you want to delete the promotion?" visible="false" wrappingWidth="287.0" />
+            <Label fx:id="labelError" layoutX="50.0" layoutY="252.0" text="Error" textFill="#b00000" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@../css/style.css" />
+   </stylesheets>
+</AnchorPane>

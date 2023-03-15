@@ -1,0 +1,7 @@
+Why can`t I use some functions of the product? - Because some availabilities of your program are strictly connected to your role in the company you are in. \n So if you want to try all the features of it, either create your own company or ask your manager to upgrade your role
+How can I add product into a list? - If you are allowed to edit storage, you can use a button in storage frame `Add Product`
+What will be if leave my company as an owner? - Your company will be deleted from our database, \n but in the future we will add an ability to save your company information locally /n. So you will be able to return your company
+Where can I change the currency? - In Settings
+How can I add new promotions onto my product? - There are two ways to do that if you have the specific role.\n You can either add it via storage with filled data or you can add it in discounts
+Can I work with data without using Internet? - Unfortunately, our app works only with stable internet connection, but in the future, you can work without it
+How can I add people to my company? - If you are an admin or owner, you can add new users via special link or sending requests onto their emails. \n Such features are in Administration

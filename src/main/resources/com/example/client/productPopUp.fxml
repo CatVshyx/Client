@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="560.0" styleClass="custom-pane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.controllers.ProductEditController">
+   <children>
+      <AnchorPane fx:id="editProductPane" layoutX="-25.0" layoutY="31.0" prefHeight="308.0" prefWidth="585.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="-25.0">
+         <children>
+            <Label fx:id="productName" layoutX="50.0" layoutY="44.0" text="Name of the product &#10;right here" wrapText="true" />
+            <Label fx:id="price" layoutX="208.0" layoutY="44.0" text="42.12" />
+            <Label fx:id="currency" layoutX="258.0" layoutY="44.0" opacity="0.6" text="Label" />
+            <Label fx:id="amount" layoutX="313.0" layoutY="44.0" text="24" />
+            <Label fx:id="amountValue" layoutX="346.0" layoutY="44.0" opacity="0.6" text="Label" />
+            <Label fx:id="supplier" layoutX="417.0" layoutY="44.0" opacity="0.6" text="OOO Banko" />
+            <Text layoutX="50.0" layoutY="121.0" opacity="0.6" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-view-order: 2;" text="Category" />
+            <AnchorPane fx:id="addPromoDelProdPane" layoutX="249.0" layoutY="190.0">
+               <children>
+                  <Button fx:id="addPromoButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Add promotion">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/grey_plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="deleteButton" layoutX="160.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Delete product">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="16.0" opacity="0.76" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/storage/decline.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Region layoutX="244.0" layoutY="133.0" opacity="0.8" prefHeight="1.0" prefWidth="350.0" style="-fx-background-color: linear-gradient(to bottom right,  #D3F3F5,#A798D9);" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="160.0" />
+            <ImageView fx:id="editButton" fitHeight="20.0" fitWidth="20.0" layoutX="542.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering">
+               <image>
+                  <Image url="@../icons/storage/pen.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="saveChanges" layoutX="249.0" layoutY="190.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Save changes" visible="false" />
+            <Button fx:id="cancelB" layoutX="409.0" layoutY="190.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Cancel" visible="false" />
+            <AnchorPane id="categoryPane" fx:id="categoryPane" layoutX="33.0" layoutY="108.0" prefHeight="120.0" prefWidth="166.0" visible="false">
+               <children>
+                  <ListView fx:id="listView" layoutY="38.0" prefHeight="76.0" prefWidth="174.0" styleClass="listView" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="4.0" />
+                  <Text fx:id="categoryInfo" layoutX="15.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CATEGORY" AnchorPane.topAnchor="10.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="deletePane" layoutX="232.0" layoutY="164.0" prefHeight="59.0" prefWidth="329.0" visible="false">
+               <children>
+                  <Button fx:id="cancelDel" layoutX="169.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="148.0" styleClass="buttonWhite" text="Cancel" />
+                  <Button fx:id="currDel" layoutX="16.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Delete product">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="16.0" opacity="0.76" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/storage/decline.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text layoutX="42.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure you want to delete this product?" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="promotionPane" layoutX="210.0" layoutY="158.0" prefHeight="126.0" prefWidth="375.0" style="-fx-view-order: 2;" visible="false">
+               <children>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discount Percentage" />
+                  <Text layoutX="5.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Special offer period:" />
+                  <Button fx:id="promoConfirm" layoutX="21.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Add promotion">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/grey_plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="cancelPromo" layoutX="192.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="148.0" styleClass="buttonWhite" text="Cancel" />
+                  <DatePicker fx:id="dateFrom" layoutX="156.0" layoutY="34.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="90.0" styleClass="datePicker">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </DatePicker>
+                  <DatePicker fx:id="dateTo" layoutX="271.0" layoutY="34.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="90.0" styleClass="datePicker" />
+                  <TextField fx:id="discount" layoutX="120.0" layoutY="5.0" prefHeight="27.0" prefWidth="37.0" promptText="__%" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: rgba(113, 115, 177, 0.2);" />
+                  <Text layoutX="121.0" layoutY="51.0" opacity="0.6" strokeType="OUTSIDE" strokeWidth="0.0" text="From" />
+                  <Text layoutX="252.0" layoutY="51.0" opacity="0.6" strokeType="OUTSIDE" strokeWidth="0.0" text="To" />
+               </children>
+            </AnchorPane>
+            <Label fx:id="errorLabel" layoutX="320.0" layoutY="124.0" text="Error" textFill="#b00000" visible="false" />
+            <Label fx:id="productIdTitle" layoutX="50.0" layoutY="6.0" text="Product id %s">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="close" fitHeight="17.0" fitWidth="20.0" layoutX="532.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering">
+         <image>
+            <Image url="@../icons/storage/close.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="confirmPane" layoutX="27.0" layoutY="79.0" prefHeight="210.0" prefWidth="483.0" visible="false">
+         <children>
+            <Label fx:id="labelConfirm" layoutX="108.0" layoutY="60.0" text="Changes have been successfully saved">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/storage/accept.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="closeOk" layoutX="172.0" layoutY="141.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Ok" />
+         </children>
+      </Pane>
+   </children>
+   <stylesheets>
+
+      <URL value="@../css/style.css" />
+   </stylesheets>
+</AnchorPane>

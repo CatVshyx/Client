@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="promotionPane" prefHeight="430.0" prefWidth="660.0" styleClass="custom-pane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.controllers.AddPromotionController">
+   <children>
+      <AnchorPane fx:id="showConfirm" layoutX="2.0" layoutY="-2.0" prefHeight="432.0" prefWidth="660.0" visible="false">
+         <children>
+            <Label layoutX="139.0" layoutY="147.0" text="The promo was successfully added to the table &quot;All Promotions”">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/storage/accept.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="closeOK" layoutX="277.0" layoutY="216.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: rgba(223, 211, 245, 0.2);" styleClass="buttonWhite" text="Ok" AnchorPane.leftAnchor="277.0" AnchorPane.topAnchor="216.0" />
+            <ImageView fitHeight="30.0" fitWidth="21.0" layoutX="610.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering" fx:id="x_close2">
+               <image>
+                  <Image url="@../icons/storage/close.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addDiscPane" layoutX="44.0" layoutY="14.0">
+         <children>
+            <TextField fx:id="productName" layoutX="-4.0" layoutY="84.0" prefHeight="60.0" prefWidth="355.0" promptText="I..." style="-fx-background-color: white; -fx-border-color: rgba(113, 115, 177, 0.2); -fx-border-radius: 12; -fx-background-radius: 12;" />
+            <TextField fx:id="discountField" layoutX="162.0" layoutY="211.0" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: white; -fx-border-color: rgba(113, 115, 177, 0.2); -fx-border-radius: 12; -fx-background-radius: 12;" />
+            <TextField fx:id="productCategory" editable="false" layoutX="373.0" layoutY="84.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: rgba(113, 115, 177, 0.2); -fx-border-radius: 12; -fx-background-radius: 12;" />
+            <TextField fx:id="priceField" editable="false" layoutX="2.0" layoutY="211.0" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: white; -fx-border-color: rgba(113, 115, 177, 0.2); -fx-border-radius: 12; -fx-background-radius: 12;" />
+            <Button fx:id="addPromotion" layoutX="136.0" layoutY="325.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Add Promotion">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/grey_plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="cancelButton" layoutX="304.0" layoutY="325.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Cancel" />
+            <Text layoutX="2.0" layoutY="21.734375" strokeType="OUTSIDE" strokeWidth="0.0" text="Add promotion">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="4.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the product name:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="377.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the product category:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="2.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current price:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="165.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discount:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="297.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Label fx:id="currency" layoutX="102.0" layoutY="215.0" opacity="0.6" text="UAH">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="value" layoutX="239.0" layoutY="215.0" opacity="0.6" text="\%">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="575.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering" fx:id="x_close">
+               <image>
+                  <Image url="@../icons/storage/close.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="419.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <DatePicker id="pick" fx:id="dateFrom" layoutX="284.0" layoutY="211.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="90.0" styleClass="datePicker">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </DatePicker>
+            <DatePicker id="pick" fx:id="dateTo" layoutX="416.0" layoutY="211.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="90.0" styleClass="datePicker">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </DatePicker>
+            <Label fx:id="labelError" layoutX="10.0" layoutY="273.0" text="Error" textFill="#b00000" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="setProductButton" fitHeight="27.0" fitWidth="21.0" layoutX="134.0" layoutY="7.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icon_set.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@../css/style.css" />
+
+   </stylesheets>
+</AnchorPane>

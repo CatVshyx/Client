@@ -1,0 +1,555 @@
+/*TYPE OF BUTTON WHICH USES IN THE APP*/
+.whiteLabel{
+    -fx-border-color: rgba(113, 115, 177, 0.7);
+    -fx-background-color:white;
+    -fx-border-radius:12px;
+    -fx-background-radius:15px;
+    -fx-text-fill:#7173B1;
+}
+.buttonWhite{
+    -fx-border-color: rgba(113, 115, 177, 0.7);
+    -fx-background-color:white;
+    -fx-border-radius:12px;
+    -fx-background-radius:15px;
+    -fx-text-fill:#7173B1;
+}
+.buttonWhite:hover{
+    -fx-background-color:rgba(223, 211, 245, 0.3);
+     -fx-text-fill:rgba(6, 6, 18, 0.7);
+}
+
+/* BLACK VERSION OF THE BUTTON, MAINLY USES IN THE SIDEBAR MENU*/
+.buttonBlack{
+    -fx-background-color:#060612;
+}
+.buttonBlack:hover  {
+    -fx-opacity: 0.80;
+}
+.buttonBlack:focused{
+    -fx-background-radius :0 30 30 0;
+    -fx-border-color: transparent transparent transparent white;
+    -fx-border-width: 0px 0px 0px 3px;
+    -fx-opacity:1;
+    -fx-background-color:#606060;
+}
+
+/* TRANSPARENT VERSION OF BUTTON WITH GRADIENT*/
+.gradientButton{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color:  #DFD3F5;
+    -fx-background-radius: 15px;
+    -fx-border-radius:15px;
+    -fx-background-radius:15px;
+}
+.gradientButton:hover{
+    -fx-background-color: linear-gradient(to bottom left,rgba(223, 211, 245, 0.5) 0%,rgba(211, 243, 245, 0.5) 100%,white)
+}
+
+/*WHEN YOU WANT AN OBJECT TO BE HOVERED*/
+.simpleHovering{
+    -fx-opacity:0.75;
+}
+.simpleHovering:hover{
+    -fx-opacity:1;
+}
+
+/*CHECKBOX WITH ARROWS V1*/
+.checkBoxArrows .box{
+-fx-background-color:transparent;
+    -fx-translate-x:80px;
+}
+.checkBoxArrows:selected .box{
+    -fx-background-color:transparent;
+}
+.checkBoxArrows .mark{
+    -fx-min-width:20px;
+    -fx-background-size: cover, auto;
+    -fx-background-image: url("../icons/storage/arrow_up.png");
+      -fx-background-position: center;
+      -fx-background-repeat: stretch;
+      -fx-shape: none;
+}
+.checkBoxArrows:selected .mark{
+    -fx-background-color:transparent;
+    -fx-background-size: cover, auto;
+    -fx-background-image: url("../icons/storage/arrow_down.png");
+    -fx-background-position: center;
+    -fx-background-repeat: stretch;
+    -fx-shape: none;
+}
+
+/*STANDART TABLE IN APP*/
+/*
+.tbView .table-row-cell{
+    -fx-background-color:transparent;
+}*/
+.tbView{
+    -fx-background-color:transparent;
+    -fx-border-color:transparent;
+}
+.tbView .table-row-cell:filled{
+    -fx-padding: 2 0 2 10px;
+    -fx-cell-size: 80px;
+	-fx-alignment: center-right;
+    -fx-font-size: 12px;
+    -fx-opacity: 0.8;
+}
+.tbView .table-row-cell:empty{
+    -fx-border-color: transparent;
+    -fx-background-color:transparent;
+}
+/*header of the table*/
+.tbView .column-header-background {
+    -fx-max-height: 0;
+    -fx-pref-height: 0;
+    -fx-min-height: 0;
+}
+.tbView:focused{
+    -fx-background-color: transparent;
+}
+/* table cell - an element of the table , clears vertical lines*/
+.tbView .table-cell{
+    -fx-border-color:transparent;
+}
+/* text alignment*/
+.tbView  .table-column{
+    -fx-alignment:top-left;
+    -fx-translate-y:20px;
+}
+/* scroll bars*/
+.table-view .scroll-bar * {
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+.tbView .table-row-cell:empty {
+    -fx-background-color: white;
+}
+.tbView .table-row-cell:empty .table-cell {
+    -fx-border-width: 0px;
+}
+
+/*MENUS ABOVE THE TABLES*/
+.table-menu-bar{
+    -fx-background-color:transparent;
+}
+.table-menu-bar .menu{
+    -fx-background-color:transparent;
+}
+
+.table-menu-bar .menu-item {
+    -fx-layout-x:20px;
+}
+
+.menu-down-arrow, .menu-up-arrow{
+   -fx-background-color:transparent;
+}
+
+.table-menu-bar .menu-item:hover, .menu-item:focused {
+    -fx-background-color:rgba(136, 136, 136, 0.3);
+    -fx-text-fill:green;
+}
+
+.table-menu-bar .context-menu{
+    -fx-background-color:white;
+    -fx-effect: dropshadow(three-pass-box, rgba(113, 115, 177, 0.3), 40, 0, 3,5);
+    -fx-translate-y:20px;
+    -fx-translate-x:-15px;
+    -fx-background-radius: 0 0 15 15;
+    -fx-min-width:200px;
+    -fx-max-height:160px;
+}
+
+/*GRADIENT FOR ROUNDED OBJECTS*/
+.gradientRounded{
+    -fx-background-radius: 20px;
+    -fx-background-color: linear-gradient(to top left,#D3F3F5,#F3D3F5);
+}
+
+/*BUTTON DOTS FOR THOSE DOTS INSIDE THE TABLE*/
+.buttonDots{
+    -fx-translate-x:50px;
+    -fx-opacity:0.7;
+    -fx-background-color:transparent;
+    -fx-border-color:transparent;
+}
+.buttonDots:hover{
+    -fx-opacity:1;
+}
+
+/*CHECKBOXES INSIDE THE MENU*/
+/*SIMPLE LIST VIEW*/
+.listView{
+     -fx-border-color: white;
+}
+.listView .list-cell {
+    -fx-background-color:white;
+    -fx-text-fill:grey;
+}
+.listView .scroll-pane{
+    -fx-background-color:green;
+}
+.listView .scroll-bar {
+    -fx-background-color:transparent;
+    -fx-min-height:20px;
+    -fx-translate-x:5px
+}
+.listView .scroll-bar .increment-button ,.decrement-button,.increment-arrow,.decrement-arrow{
+    -fx-background-color:transparent;
+}
+.listView .scroll-bar .thumb{
+    -fx-background-color:rgba(113, 115, 177, 0.5);
+    -fx-background-radius:10px;
+    -fx-scale-x:0.20;
+}
+.listView .scroll-bar .track{
+    -fx-background-radius:10px;
+     -fx-scale-x:0.20;
+    -fx-background-color:rgba(113, 115, 177, 0.2);
+}
+
+/*SIMPLE DATE PICKER*/
+.datePicker{
+    -fx-background-color:transparent;
+}
+.datePicker .arrow-button{
+    -fx-background-color:transparent;
+}
+.datePicker .arrow {
+    -fx-translate-y:-2;
+    -fx-scale-x:2;
+    -fx-scale-y:2;
+    -fx-shape:"M2.5 8.375V20.875H23.5V3.6875H20V4.46875C20 4.67595 19.9078 4.87466 19.7437 5.02118C19.5796 5.16769 19.3571 5.25 19.125 5.25C18.8929 5.25 18.6704 5.16769 18.5063 5.02118C18.3422 4.87466 18.25 4.67595 18.25 4.46875V3.6875H7.75V4.46875C7.75 4.67595 7.65781 4.87466 7.49372 5.02118C7.32962 5.16769 7.10706 5.25 6.875 5.25C6.64294 5.25 6.42038 5.16769 6.25628 5.02118C6.09219 4.87466 6 4.67595 6 4.46875V3.6875H2.5V6.8125H23.5V8.375H2.5ZM7.75 2.125H18.25V1.34375C18.25 1.13655 18.3422 0.937836 18.5063 0.791323C18.6704 0.64481 18.8929 0.5625 19.125 0.5625C19.3571 0.5625 19.5796 0.64481 19.7437 0.791323C19.9078 0.937836 20 1.13655 20 1.34375V2.125H24.375C24.6071 2.125 24.8296 2.20731 24.9937 2.35382C25.1578 2.50034 25.25 2.69905 25.25 2.90625V21.6562C25.25 21.8635 25.1578 22.0622 24.9937 22.2087C24.8296 22.3552 24.6071 22.4375 24.375 22.4375H1.625C1.39294 22.4375 1.17038 22.3552 1.00628 22.2087C0.842187 22.0622 0.75 21.8635 0.75 21.6562V2.90625C0.75 2.69905 0.842187 2.50034 1.00628 2.35382C1.17038 2.20731 1.39294 2.125 1.625 2.125H6V1.34375C6 1.13655 6.09219 0.937836 6.25628 0.791323C6.42038 0.64481 6.64294 0.5625 6.875 0.5625C7.10706 0.5625 7.32962 0.64481 7.49372 0.791323C7.65781 0.937836 7.75 1.13655 7.75 1.34375V2.125ZM6.875 11.5H8.625C8.85706 11.5 9.07962 11.5823 9.24372 11.7288C9.40781 11.8753 9.5 12.074 9.5 12.2812C9.5 12.4885 9.40781 12.6872 9.24372 12.8337C9.07962 12.9802 8.85706 13.0625 8.625 13.0625H6.875C6.64294 13.0625 6.42038 12.9802 6.25628 12.8337C6.09219 12.6872 6 12.4885 6 12.2812C6 12.074 6.09219 11.8753 6.25628 11.7288C6.42038 11.5823 6.64294 11.5 6.875 11.5V11.5ZM6.875 16.1875H8.625C8.85706 16.1875 9.07962 16.2698 9.24372 16.4163C9.40781 16.5628 9.5 16.7615 9.5 16.9688C9.5 17.176 9.40781 17.3747 9.24372 17.5212C9.07962 17.6677 8.85706 17.75 8.625 17.75H6.875C6.64294 17.75 6.42038 17.6677 6.25628 17.5212C6.09219 17.3747 6 17.176 6 16.9688C6 16.7615 6.09219 16.5628 6.25628 16.4163C6.42038 16.2698 6.64294 16.1875 6.875 16.1875V16.1875ZM12.125 11.5H13.875C14.1071 11.5 14.3296 11.5823 14.4937 11.7288C14.6578 11.8753 14.75 12.074 14.75 12.2812C14.75 12.4885 14.6578 12.6872 14.4937 12.8337C14.3296 12.9802 14.1071 13.0625 13.875 13.0625H12.125C11.8929 13.0625 11.6704 12.9802 11.5063 12.8337C11.3422 12.6872 11.25 12.4885 11.25 12.2812C11.25 12.074 11.3422 11.8753 11.5063 11.7288C11.6704 11.5823 11.8929 11.5 12.125 11.5V11.5ZM12.125 16.1875H13.875C14.1071 16.1875 14.3296 16.2698 14.4937 16.4163C14.6578 16.5628 14.75 16.7615 14.75 16.9688C14.75 17.176 14.6578 17.3747 14.4937 17.5212C14.3296 17.6677 14.1071 17.75 13.875 17.75H12.125C11.8929 17.75 11.6704 17.6677 11.5063 17.5212C11.3422 17.3747 11.25 17.176 11.25 16.9688C11.25 16.7615 11.3422 16.5628 11.5063 16.4163C11.6704 16.2698 11.8929 16.1875 12.125 16.1875V16.1875ZM17.375 11.5H19.125C19.3571 11.5 19.5796 11.5823 19.7437 11.7288C19.9078 11.8753 20 12.074 20 12.2812C20 12.4885 19.9078 12.6872 19.7437 12.8337C19.5796 12.9802 19.3571 13.0625 19.125 13.0625H17.375C17.1429 13.0625 16.9204 12.9802 16.7563 12.8337C16.5922 12.6872 16.5 12.4885 16.5 12.2812C16.5 12.074 16.5922 11.8753 16.7563 11.7288C16.9204 11.5823 17.1429 11.5 17.375 11.5ZM17.375 16.1875H19.125C19.3571 16.1875 19.5796 16.2698 19.7437 16.4163C19.9078 16.5628 20 16.7615 20 16.9688C20 17.176 19.9078 17.3747 19.7437 17.5212C19.5796 17.6677 19.3571 17.75 19.125 17.75H17.375C17.1429 17.75 16.9204 17.6677 16.7563 17.5212C16.5922 17.3747 16.5 17.176 16.5 16.9688C16.5 16.7615 16.5922 16.5628 16.7563 16.4163C16.9204 16.2698 17.1429 16.1875 17.375 16.1875Z";
+    -fx-background-color:#7173B1;
+}
+.datePicker .text-input {
+    -fx-background-color:transparent;
+    -fx-font-size:10;
+}
+
+/*SIMPLE TITLED-PANE STYLE WITH ARROW TO THE RIGHT*/
+.titled-pane .title, .content  {
+    -fx-background-color:transparent;
+    -fx-border-color:transparent;
+}
+.titled-pane .arrow{
+    -fx-background-color:transparent;
+    -fx-background-image: url("../icons/storage/arrow.png");
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-size:8 8;
+    -fx-translate-x:3px;
+    -fx-shape:none;
+}
+.titled-pane .arrow-button{
+    -fx-rotate:90;
+    -fx-pref-height:20px;
+    -fx-pref-width:20px;
+    -fx-translate-x:60px;
+    -fx-opacity:0.5;
+}
+.titled-pane:expanded .arrow-button{
+    -fx-rotate: 180;
+}
+.underline-text:hover {
+    -fx-underline:true;
+}
+/*PINK UNDERLINE OF THE TITLE - for AboutProject*/
+.underline-title .title{
+    -fx-border-color:rgba(113, 115, 177, 0.2);
+    -fx-border-width:0 0 2 0;
+    -fx-font-size:16px;
+}
+
+/*CHART STYLE*/
+.chart{
+    -fx-background-color: transparent;
+    -fx-font-size:15px;
+    -fx-text-fill: grey;
+    -fx-legend-visible:false;
+    -fx-create-symbols:false;
+    -fx-horizontal-grid-lines-visible:false;
+    -fx-vertical-grid-lines-visible:false;
+}
+.axis{
+    -fx-tick-mark-visible:false;
+}
+.chart-series-line{
+    -fx-stroke-width:4px;
+}
+.axis-label{
+    -fx-text-fill:#ffffff;
+}
+.chart-plot-background{
+    -fx-background-color:transparent;
+}
+
+/*SPLIT PANE STYLE*/
+.split-pane .split-pane-divider{
+    -fx-background-color:transparent;
+}
+/*PANE(WINDOW) STYLE*/
+.custom-pane {
+    -fx-border-color: rgba(113, 115, 177, 0.5);
+    -fx-background-color:white;
+    -fx-border-radius:15px;
+    -fx-background-radius:15px;
+}
+
+/*MAIN SCROLL BAR STYLE*/
+/*TOP RIGHT BOTTOM LEFT*/
+.custom .scroll-bar{
+    -fx-background-color:white;
+    -fx-unit-increment:5;
+}
+.custom .scroll-bar .track{
+    -fx-background-color:white;
+}
+.custom .scroll-bar .decrement-button , .increment-button , .increment-arrow  .decrement-arrow{
+    -fx-background-color:white;
+    -fx-border-color:white
+}
+.custom .scroll-bar .thumb{
+    -fx-background-color:rgba(113, 115, 177, 0.6);
+    -fx-background-radius:60px;
+    -fx-background-insets:0 4 0 6;
+}
+.custom .scroll-bar .track{
+    -fx-background-color:rgba(113, 115, 177, 0.2);
+    -fx-background-radius:60px;
+    -fx-background-insets:0 4 0 6;
+}
+/*TAB PANE STYLE */
+/*the whole header*/
+.tab-pane .tab-header-background{
+    -fx-background-color:transparent;
+}
+.custom-tab-pane .tab-header-area{
+}
+/*also the whole header but its for color*/
+
+/* its the field of all the headers(tabs)*/
+.custom-tab-pane .headers-region{
+  -fx-translate-x:520px;
+}
+/*idk*/
+.custom-tab-pane .control-buttons-tab {
+}
+/* each tab*/
+.tab-pane .tab {
+    -fx-font-size:14px;
+    -fx-opacity:0.5;
+    -fx-background-color:transparent;
+    -fx-border-width:0px;
+    -fx-focus-traversable:false;
+}
+.custom-tab-pane .tab:hover{
+    -fx-opacity:0.6;
+}
+.custom-tab-pane .tab:selected{
+    -fx-opacity:1;
+}
+.custom-tab-pane .tab:show-mnemonic{
+    -fx-scale-x:2;
+}
+.custom-tab-pane .tab .tab-close-button {
+    -fx-background-color:red;
+}
+/*SIMPLE STYLE OF TEXT FIELD*/
+.text-field{
+    -fx-background-color:white;
+    -fx-border-color: rgba(113, 115, 177, 0.2);
+    -fx-border-radius:12px;
+    -fx-background-radius:12px;
+}
+/*SIMPLE STYLE OF ALL TEXTAREAS*/
+.text-area .content {
+    -fx-background-color:white;
+}
+.rectangle-rounded{
+    -fx-arc-height:50;
+    -fx-arc-width:50;
+}
+
+
+.focus-indicator{
+    -fx-border-color: transparent;
+}
+
+
+/*CUSTOM CHECKBOX - IN ADMINISTRATION AND Settings*/
+.custom-check-box {
+    -fx-background-color:white;
+    -fx-border-radius:12px;
+    -fx-background-radius:12px;
+    -fx-border-color:rgba(113, 115, 177, 0.2);
+    -fx-text-fill:#7173B1;
+    -fx-label-padding:0 0 0 -9;
+
+}
+
+.custom-check-box:selected{
+    -fx-background-color:rgba(223, 211, 245, 0.3);
+    -fx-border-color:rgba(113, 115, 177, 0.7);
+}
+.custom-check-box .box ,.mark{
+    -fx-background-color:transparent;
+}
+
+
+/* CUSTOM RADIO BOX AND CHECK BOX FOR TABLES MENUS */
+
+.check-menu-item .left-container {
+    -fx-border-color:rgba(113, 115, 177, 0.2);
+    -fx-border-width:1.5px;
+    -fx-pref-width:15px;
+    -fx-border-radius:5px;
+    -fx-translate-x:-2px;
+}
+.check-menu-item:checked  .left-container  .check {
+    -fx-background-color:white;
+    -fx-border-radius:5px;
+    -fx-background-radius:5px;
+
+    -fx-border-color:rgba(113, 115, 177, 0.7);
+}
+
+.radio-menu-item .left-container{
+    -fx-pref-width:15px;
+    -fx-background-color:transparent;
+    -fx-border-color:rgba(113, 115, 177, 0.3);
+    -fx-border-width:1.5;
+    -fx-border-radius:50px;
+    -fx-translate-x:-2px;
+}
+
+.radio-menu-item:checked > .left-container > .radio{
+    -fx-background-color:rgba(113, 115, 177, 0.7);
+    -fx-border-color:rgba(113, 115, 177, 0.7);
+    -fx-translate-x:2px;
+    -fx-shape:"M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z";
+}
+
+
+
+
+
+
+
+
+/*CUSTOM RADIO BOXES - FINANCE TOP*/
+.custom-finance-box{
+    -fx-background-color:white;
+    -fx-font-weight:400;
+    -fx-text-fill:rgba(6, 6, 18, 0.7);
+    -fx-border-color:rgba(113, 115, 177, 0.2);
+}
+.custom-finance-box .radio , .dot{
+    -fx-background-color:transparent;
+}
+.custom-finance-box:hover{
+    -fx-background-color:rgba(223, 211, 245, 0.2);
+    -fx-border-color:rgba(113, 115, 177, 0.4);
+}
+.custom-finance-box:selected{
+    -fx-font-weight:800;
+    -fx-background-color:rgba(223, 211, 245, 0.3);
+    -fx-border-color:rgba(113, 115, 177, 0.7);
+}
+
+/*ID CLASSES*/
+#download{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color:#808080;
+    -fx-border-radius: 5px;
+    -fx-background-radius:5px;
+    -fx-effect: dropshadow(three-pass-box, #A6A6A6, 5, 0, 0, 2);
+}
+#download:focused{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color:#808080;
+    -fx-background-radius:5px;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+}
+#download:pressed{
+    -fx-opacity:0.7;
+}
+#q_code{
+    -fx-opacity:0.5;
+}
+#q_code:focused{
+    -fx-background-radius :  0px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0px;
+    -fx-opacity:1;
+}
+#search{
+    -fx-background-color:rgba(223, 211, 245, 0.5);
+    -fx-background-radius:12px;
+    -fx-border-radius:12px;
+    -fx-border-color:rgba(113, 115, 177, 0.5);
+    -fx-border-width:0.5px;
+}
+#priceBox .box{
+    -fx-translate-x:60px;
+}
+#pick .text-input{
+    -fx-opacity:0.6;
+    -fx-border-color: rgba(113, 115, 177, 0.6);
+    -fx-font-size:12;
+    -fx-border-radius:12px;
+}
+#categoryPane{
+    -fx-border-color: rgba(113, 115, 177, 0.2);
+    -fx-border-radius:15px;
+    -fx-background-radius:15px;
+    -fx-background-color:white;
+}
+#download-arrow{
+    -fx-opacity:0.3;
+}
+#download-arrow:hover{
+    -fx-opacity:1;
+}
+/*finance - problems with animated feature shows scroll bar on some seconds*/
+
+#aboutProject-titled-pane .arrow-button{
+    -fx-translate-x:750px;
+}
+#aboutProject-titled-pane .arrow{
+    -fx-background-size:12 12;
+}
+
+#help-titled-pane .arrow-button{
+    -fx-translate-x:850px;
+}
+#help-titled-pane .arrow{
+    -fx-background-size:12 12;
+}
+#help-titled-pane .text-area * {
+    -fx-background-color:white;
+}
+
+#LogInTab .tab-header-area {
+    -fx-translate-y:-7px;
+    -fx-translate-x:120px;
+}
+#LogInTab .tab{
+    -fx-border-width:0;
+    -fx-border-color:transparent;
+}
+
+#LogInTab .tab-label {
+    -fx-border-width:0 0 2 0;
+    -fx-font-size:16px;
+}
+#LogInTab .tab:selected .tab-label{
+    -fx-border-color: #7173B1;
+    -fx-text-fill:black;
+    -fx-font-weight:800;
+}
+

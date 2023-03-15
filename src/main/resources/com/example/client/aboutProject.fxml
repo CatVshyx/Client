@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="custom-pane" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="imagePhoto" fitHeight="97.0" fitWidth="90.0" layoutX="643.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/logo_example.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="21.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FinanceFlow">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <Accordion layoutX="1.0" layoutY="109.0" prefHeight="486.0" prefWidth="800.0">
+        <panes>
+          <TitledPane id="aboutProject-titled-pane" styleClass="underline-title" text="About the project">
+               <content>
+                  <SplitPane fx:id="splitPane" dividerPositions="0.6027568922305765" prefHeight="160.0" prefWidth="200.0">
+                    <items>
+                        <TextArea maxHeight="411.0" maxWidth="490.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="490.0" text="Nowadays business requires new user-friendly apps which can help to do business. This app provides both easy-learning features and online support.&#10;Here we connected the best practices of UI/UX, mixed them with an ability to extend the application by developers  and preserved the main  part of any business application - ease. &#10;&#10;Bellezza provides several ways to manipulate your company: to control finances, storage, discounts and your employeers who can also get the role to be a part of your company. Besides, all the statistics during certain periods of time (weeks, months, years) can be automatically generated and used after for accounting. If you have some issues, we provided a two-side system of support.&#10;&#10;Bellezza is the beginning of doing online business&#10;&#10;" wrapText="true" SplitPane.resizableWithParent="false">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextArea>
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="411.0" prefWidth="286.0" styleClass="custom" SplitPane.resizableWithParent="false">
+                           <content>
+                              <VBox maxHeight="397.0" maxWidth="316.0" prefHeight="397.0" prefWidth="316.0">
+                                 <children>
+                                    <ImageView fitHeight="186.0" fitWidth="303.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/screenAbout.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="202.0" fitWidth="321.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/screenAbout2.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="228.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/screenAbout3.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="308.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/screenAbout4.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                    </items>
+                  </SplitPane>
+               </content>
+          </TitledPane>
+          <TitledPane id="aboutProject-titled-pane" styleClass="underline-title" text="About the authors">
+               <content>
+                  <BorderPane prefHeight="311.0" prefWidth="731.0">
+                     <top>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <Label prefHeight="140.0" prefWidth="350.0" text="Dmytro Shapiro - Java Software developer, born in Odessa, Ukraine. He is interesting in everything about Java. Dmytro is responsible for Desktop and Backend parts of the application" wrapText="true">
+                                 <HBox.margin>
+                                    <Insets right="78.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <Circle fx:id="devDima" fill="#1f93ff" radius="55.0" stroke="BLACK" strokeType="INSIDE" styleClass="simpleHovering" />
+                                 </graphic>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="135.0" prefWidth="326.0" text="Vlad Todorov - Swift Mobile developer, born in Odessa, Ukraine. He created the main design of Bellezza with Dmytro. Vlad is responssible for mobile version of the application for IoS" wrapText="true">
+                                 <graphic>
+                                    <Circle fx:id="devVlad" fill="#1f93ff" radius="55.0" stroke="BLACK" strokeType="INSIDE" styleClass="simpleHovering" />
+                                 </graphic>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets right="-5.0" />
+                           </opaqueInsets>
+                        </HBox>
+                     </top>
+                  </BorderPane>
+               </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <ImageView fx:id="closeButton" fitHeight="29.0" fitWidth="20.0" layoutX="666.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <Image url="@../icons/storage/close.png" />
+      </ImageView>
+      <Label graphicTextGap="3.0" layoutX="21.0" layoutY="59.0" prefHeight="43.0" prefWidth="137.0" text="application version 0.2 build 7.12 " wrapText="true" />
+   </children>
+</AnchorPane>

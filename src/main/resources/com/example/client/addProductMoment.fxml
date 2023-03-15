@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="productPane" prefHeight="430.0" prefWidth="660.0" styleClass="custom-pane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.controllers.AddProductController">
+   <children>
+      <Group fx:id="group" layoutX="44.0" layoutY="35.734375">
+         <children>
+            <TextField fx:id="productName" layoutY="95.265625" prefHeight="60.0" prefWidth="355.0" promptText="I..." style="-fx-background-color: white; -fx-border-color: rgba(113, 115, 177, 0.2); -fx-border-radius: 12; -fx-background-radius: 12;" />
+            <TextField fx:id="valueField" layoutX="152.0" layoutY="215.265625" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: white; -fx-border-color: rgba(113, 115, 177, 0.2); -fx-border-radius: 12; -fx-background-radius: 12;" />
+            <TextField fx:id="productCategory" layoutX="377.0" layoutY="95.265625" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: rgba(113, 115, 177, 0.2); -fx-border-radius: 12; -fx-background-radius: 12;" />
+            <TextField fx:id="priceField" layoutX="2.0" layoutY="215.265625" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: white; -fx-border-color: rgba(113, 115, 177, 0.2); -fx-border-radius: 12; -fx-background-radius: 12;" />
+            <TextField fx:id="supplierField" layoutX="297.0" layoutY="215.265625" prefHeight="30.0" prefWidth="278.0" style="-fx-background-color: white; -fx-border-color: rgba(113, 115, 177, 0.2); -fx-border-radius: 12; -fx-background-radius: 12;" />
+            <Button fx:id="addButton" layoutX="136.0" layoutY="303.265625" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Add Product">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/grey_plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="cancelButton" layoutX="295.0" layoutY="303.265625" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Cancel" />
+            <Text layoutX="2.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add product">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="4.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the product name:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="377.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the product category:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="2.0" layoutY="201.158203125" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the price:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="152.0" layoutY="201.158203125" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter amount:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="297.0" layoutY="201.158203125" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter supplier:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Label fx:id="currency" layoutX="103.0" layoutY="221.265625" opacity="0.6" text="UAH">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="258.0" layoutY="221.265625" opacity="0.6" text="pcs">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="errorLabel" layoutX="14.0" layoutY="271.0" text="Error" textFill="#b00000" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="619.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering" fx:id="x_close">
+         <image>
+            <Image url="@../icons/storage/close.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="confirmPane" layoutX="-4.0" layoutY="78.0" prefHeight="302.0" prefWidth="660.0" visible="false">
+         <children>
+            <Label layoutX="143.0" layoutY="79.0" text="The product was successfully added to the table &quot;All Goods”">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/storage/accept.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="closeOk" layoutX="260.0" layoutY="181.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Ok" />
+         </children>
+      </Pane>
+   </children>
+   <stylesheets>
+      <URL value="@../css/style.css" />
+
+   </stylesheets>
+</AnchorPane>

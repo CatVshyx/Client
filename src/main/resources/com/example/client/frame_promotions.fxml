@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.controllers.PromotionsController">
+   <children>
+      <AnchorPane fx:id="tablePane" layoutX="38.0" layoutY="44.0" prefHeight="626.0" prefWidth="600.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-color: rgba(113, 115, 177, 0.25); -fx-border-radius: 15;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="362.0" AnchorPane.topAnchor="0.0">
+         <effect>
+            <DropShadow height="47.07" offsetX="4.0" offsetY="4.0" radius="20.5175" width="37.0">
+               <color>
+                  <Color red="0.5519999861717224" green="0.5565999746322632" blue="0.6899999976158142" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" style="-fx-background-radius: 15 15 0 0; -fx-border-radius: 15 15 0  0; -fx-border-color: #DFD3F5;">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="600.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../icons/storage/gradient.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="24.0" layoutY="14.0" text="All promotions">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <CheckBox id="priceBox" fx:id="priceBox" graphicTextGap="1.0" layoutX="4.0" layoutY="60.0" mnemonicParsing="false" styleClass="checkBoxArrows" text="Price" AnchorPane.topAnchor="60.0" />
+                  <ImageView fx:id="toDefaultProducts" fitHeight="33.0" fitWidth="44.0" layoutX="548.0" layoutY="52.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="52.0">
+                     <image>
+                        <Image url="@../icons/storage/toDefault.png" />
+                     </image>
+                  </ImageView>
+                  <MenuBar fx:id="menuBar" layoutX="210.0" layoutY="56.0" styleClass="table-menu-bar">
+                     <menus>
+                        <Menu fx:id="discountMenu" mnemonicParsing="false">
+                           <items>
+                              <RadioMenuItem mnemonicParsing="false" text="&lt; 30%">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="discountGroup" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem mnemonicParsing="false" text="30 % &lt; and &lt; 70 %" toggleGroup="$discountGroup" />
+                              <RadioMenuItem mnemonicParsing="false" text="&gt; 70%" toggleGroup="$discountGroup" />
+                              <RadioMenuItem mnemonicParsing="false" text="All" toggleGroup="$discountGroup" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="monthMenu" mnemonicParsing="false">
+                           <items>
+                              <CheckMenuItem mnemonicParsing="false" text="January" />
+                              <CheckMenuItem mnemonicParsing="false" text="February" />
+                              <CheckMenuItem mnemonicParsing="false" text="March" />
+                              <CheckMenuItem mnemonicParsing="false" text="April" />
+                              <CheckMenuItem mnemonicParsing="false" text="May" />
+                              <CheckMenuItem mnemonicParsing="false" text="June" />
+                              <CheckMenuItem mnemonicParsing="false" text="July" />
+                              <CheckMenuItem mnemonicParsing="false" text="August" />
+                              <CheckMenuItem mnemonicParsing="false" text="September" />
+                              <CheckMenuItem mnemonicParsing="false" text="October" />
+                              <CheckMenuItem mnemonicParsing="false" text="Novemer" />
+                              <CheckMenuItem mnemonicParsing="false" text="December" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="categoryMenu" mnemonicParsing="false">
+                           <items>
+                              <CheckMenuItem mnemonicParsing="false" text="Dairy" />
+                              <CheckMenuItem mnemonicParsing="false" text="Fruit" />
+                              <CheckMenuItem mnemonicParsing="false" text="Vegetables" />
+                              <CheckMenuItem mnemonicParsing="false" text="Cereal" />
+                              <CheckMenuItem mnemonicParsing="false" text="Meat" />
+                              <CheckMenuItem mnemonicParsing="false" text="Fish" />
+                              <CheckMenuItem mnemonicParsing="false" text="Grains" />
+                              <CheckMenuItem mnemonicParsing="false" text="Sweet" />
+                              <CheckMenuItem mnemonicParsing="false" text="Water" />
+                              <CheckMenuItem mnemonicParsing="false" text="Snacks" />
+                           </items>
+                        </Menu>
+                     </menus>
+                     <padding>
+                        <Insets right="40.0" />
+                     </padding>
+                  </MenuBar>
+               </children>
+            </AnchorPane>
+            <TableView fx:id="tableProducts" layoutX="24.0" layoutY="101.0" prefHeight="480.0" prefWidth="576.0" styleClass="tbView" />
+         </children>
+      </AnchorPane>
+      <AnchorPane blendMode="MULTIPLY" layoutX="672.0" layoutY="2.0" prefHeight="80.0" prefWidth="290.0" style="-fx-border-color: rgba(113, 115, 177, 0.25); -fx-border-radius: 15;" styleClass="gradientRounded">
+         <children>
+            <Label layoutX="13.0" layoutY="14.0" text="Total amount of promo goods " AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="goodsAmount" layoutX="29.0" layoutY="40.0" text="52000" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="41.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="currentDate" layoutX="150.0" layoutY="49.0" text="November 6th 2022 22:16" AnchorPane.bottomAnchor="10.0">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow height="38.0" offsetX="4.0" offsetY="4.0" radius="18.25" width="37.0">
+               <color>
+                  <Color red="0.5561000108718872" green="0.5561000108718872" blue="0.6700000166893005" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="670.0" layoutY="180.0" prefHeight="490.0" prefWidth="290.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-color: rgba(113, 115, 177, 0.25); -fx-border-radius: 15;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="670.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="100.0">
+         <effect>
+            <DropShadow height="39.52" offsetX="4.0" offsetY="4.0" radius="18.630000000000003" width="37.0">
+               <color>
+                  <Color red="0.5508000254631042" green="0.5551066398620605" blue="0.6800000071525574" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <AnchorPane prefHeight="85.0" prefWidth="290.0" style="-fx-background-radius: 15 15 0 0; -fx-border-color: #DFD3F5; -fx-border-radius: 15 15 0 0; -fx-background-color: linear-gradient(to top left,#D3F3F5 0%,#F3D3F5 100%,white);">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Best Sold products">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="amountBox" contentDisplay="RIGHT" layoutX="-11.0" layoutY="54.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="111.0" styleClass="checkBoxArrows" text="Amount" />
+                  <ImageView fx:id="toDefaultSold" fitHeight="33.0" fitWidth="44.0" layoutX="238.0" layoutY="46.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering">
+                     <image>
+                        <Image url="@../icons/storage/toDefault.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <TableView fx:id="tableSellers" layoutX="-1.0" layoutY="85.0" minWidth="-Infinity" prefHeight="397.0" prefWidth="290.0" style="-fx-border-radius: 0 0 15 15;" styleClass="tbView">
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@../css/style.css" />
+   </stylesheets>
+</AnchorPane>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="mainPane" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.controllers.LogInController">
+   <children>
+      <AnchorPane fx:id="loginRegPane">
+         <children>
+            <Pane fx:id="loginPane" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: white; -fx-border-color: rgba(113, 115, 177, 0.5); -fx-border-width: 0 1 0 0;">
+               <children>
+                  <TabPane id="LogInTab" fx:id="tabPane" layoutX="76.0" layoutY="87.0" prefHeight="546.0" prefWidth="401.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="LOG IN">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="439.0" prefWidth="401.0">
+                                 <children>
+                                    <TextField fx:id="loginEmail" layoutX="15.0" layoutY="68.0" prefHeight="35.0" prefWidth="350.0" />
+                                    <Text layoutX="17.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="16.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="forgotPasswordButton" layoutX="15.0" layoutY="207.0" styleClass="underline-text" text="Forgot password?">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="confirmLogin" layoutX="120.0" layoutY="291.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="buttonWhite" text="Log in" />
+                                    <PasswordField fx:id="loginPassword" layoutX="15.0" layoutY="158.0" prefHeight="35.0" prefWidth="350.0" />
+                                    <Label fx:id="loginPaneError" layoutX="14.0" layoutY="250.0" style="-fx-text-fill: #B00000;" text="Error" visible="false" />
+                                    <Pane fx:id="paneSendEmailForCode" layoutX="6.0" prefHeight="342.0" prefWidth="390.0" style="-fx-background-color: white;" visible="false">
+                                       <children>
+                                          <Text layoutX="20.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot password">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text layoutX="20.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the email to send you code">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Button fx:id="continueEmailPane" layoutX="33.0" layoutY="270.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="buttonWhite" text="Continue" />
+                                          <Button fx:id="cancelEmail" layoutX="194.0" layoutY="270.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="buttonWhite" text="Cancel" />
+                                          <TextField fx:id="fieldEmailToSentdCode" layoutX="14.0" layoutY="86.0" prefHeight="35.0" prefWidth="350.0" />
+                                          <Label fx:id="errorSendEmailForCode" layoutX="33.0" layoutY="147.0" text="Label" textFill="#b00000" visible="false">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="paneWriteSentCode" layoutX="6.0" prefHeight="342.0" prefWidth="390.0" style="-fx-background-color: white;" visible="false">
+                                       <children>
+                                          <Label fx:id="errorPaneWriteSendCode" layoutX="15.0" layoutY="203.0" text="Label" textFill="#b00000" visible="false">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Text layoutX="20.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot password">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text layoutX="20.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the code we have just sent">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Button fx:id="continueCodePane" layoutX="33.0" layoutY="270.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="buttonWhite" text="Continue" />
+                                          <Button fx:id="cancelCode" layoutX="194.0" layoutY="270.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="buttonWhite" text="Cancel" />
+                                          <TextField fx:id="fieldWriteSentCode" layoutX="14.0" layoutY="86.0" prefHeight="35.0" prefWidth="350.0" />
+                                          <Label fx:id="resendCodeButton" layoutX="19.0" layoutY="132.0" style="-fx-text-fill: #7173B1;" styleClass="underline-text" text="Resend">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="resetPasswordByCodePane" layoutX="6.0" prefHeight="342.0" prefWidth="390.0" style="-fx-background-color: white;" visible="false">
+                                       <children>
+                                          <Text layoutX="20.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot password">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text layoutX="20.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your new password">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Button fx:id="confirmResetPassword" layoutX="33.0" layoutY="270.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="buttonWhite" text="Confirm" />
+                                          <Button fx:id="cancelResetPassword" layoutX="194.0" layoutY="270.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="buttonWhite" text="Cancel" />
+                                          <TextField fx:id="newResetedPassword" layoutX="14.0" layoutY="86.0" prefHeight="35.0" prefWidth="350.0" />
+                                          <Label fx:id="errorResetPasswordByCode" layoutX="17.0" layoutY="210.0" style="-fx-text-fill: #B00000;" text="Invalid email, rewrite it" textFill="#b00000" visible="false" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="confirmResetedPassword" layoutX="14.0" layoutY="159.0" prefHeight="35.0" prefWidth="350.0" />
+                                          <Text layoutX="19.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm password">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </Pane>
+                                    <Label fx:id="onCreated" layoutX="81.0" layoutY="14.0" text="Please, verify your account on email" textFill="#09ff00" visible="false">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="SIGN UP">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="277.0" prefWidth="301.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <TextField fx:id="Semail" layoutX="15.0" layoutY="190.0" prefHeight="35.0" prefWidth="350.0" AnchorPane.bottomAnchor="292.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="Sphone" layoutX="15.0" layoutY="121.0" prefHeight="35.0" prefWidth="350.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="Sname" layoutX="15.0" layoutY="54.0" prefHeight="35.0" prefWidth="350.0" promptText="I...">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text layoutX="20.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your name">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="20.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="20.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" AnchorPane.bottomAnchor="333.486328125">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="20.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="20.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm password">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Button fx:id="signUpButton" layoutX="119.0" layoutY="455.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="buttonWhite" text="Sign Up" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="142.0" />
+                                    <Label fx:id="errorInfo" layoutX="15.0" layoutY="390.0" style="-fx-text-fill: #B00000;" textFill="RED" visible="false">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="Spassword" layoutX="15.0" layoutY="268.0" prefHeight="35.0" prefWidth="353.0" />
+                                    <PasswordField fx:id="Sconfirm" layoutX="15.0" layoutY="337.0" prefHeight="35.0" prefWidth="353.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </Pane>
+            <Pane fx:id="animationPane" layoutX="601.0" prefHeight="700.0" prefWidth="600.0">
+               <children>
+                  <Pane layoutX="176.0" layoutY="185.0" prefHeight="240.0" prefWidth="256.0">
+                     <children>
+                        <Text layoutX="40.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Our app is avaliable for iOS for your better experience" textAlignment="CENTER" wrappingWidth="176.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Hyperlink fx:id="hpLink" layoutX="112.0" layoutY="102.0">
+                           <graphic>
+                              <Button id="download" fx:id="downloadButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" text="Download on the &#10;App Store">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="13.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/menu/image_2022-10-14_18-44-35.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </graphic>
+                        </Hyperlink>
+                        <Button id="q_code" fx:id="qCodeButton" layoutX="42.0" layoutY="98.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="38.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/menu/frame-removebg.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <ImageView fitHeight="99.0" fitWidth="111.0" layoutX="255.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/logo_example.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="joinPane" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: white; -fx-border-color: rgba(113, 115, 177, 0.5); -fx-border-width: 0 1 0 0;" visible="false">
+               <children>
+                  <Pane fx:id="buttonJoin" layoutX="207.0" layoutY="100.0" prefHeight="150.0" prefWidth="150.0" style="-fx-border-width: 5; -fx-border-color: rgba(113, 115, 177, 0.5); -fx-border-radius: 100;">
+                     <children>
+                        <ImageView fitHeight="80.0" fitWidth="70.0" layoutX="40.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering">
+                           <image>
+                              <Image url="@../icons/check/add-user.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Label layoutX="234.0" layoutY="261.0" text="Join a company">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="buttonCreate" layoutX="207.0" layoutY="350.0" prefHeight="150.0" prefWidth="150.0" style="-fx-border-width: 5; -fx-border-color: rgba(113, 115, 177, 0.5); -fx-border-radius: 100;">
+                     <children>
+                        <ImageView fitHeight="80.0" fitWidth="70.0" layoutX="40.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering">
+                           <image>
+                              <Image url="@../icons/check/business-and-trade.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Label layoutX="201.0" layoutY="517.0" text="Create your own company">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="154.0" layoutY="29.0" text="You are not a member of any company">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="logOut" layoutX="14.0" layoutY="656.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" styleClass="buttonWhite" text="Log out" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Pane fx:id="popUpPane" layoutX="450.0" layoutY="250.0" prefHeight="200.0" prefWidth="300.0" styleClass="custom-pane" visible="false">
+         <children>
+            <Pane fx:id="closePopUp" layoutX="266.0" layoutY="14.0" styleClass="simpleHovering">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/storage/close.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Label fx:id="labelPopUp" layoutX="32.0" layoutY="44.0" text="TEXT-FISH" />
+            <TextField fx:id="textfieldPopUp" layoutX="39.0" layoutY="80.0" prefHeight="27.0" prefWidth="223.0" />
+            <Button fx:id="buttonConfirm" layoutX="81.0" layoutY="150.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Confirm" />
+            <Label fx:id="labelErrorPopUp" layoutX="32.0" layoutY="121.0" text="Error" textFill="#b00000" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
