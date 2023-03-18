@@ -2,23 +2,34 @@ package com.example.client.service;
 
 import com.example.client.HelloApplication;
 import com.example.client.additional.Response;
+import com.example.client.controllers.LogInController;
 import com.example.client.model.RegistrationRequest;
+import com.example.client.model.User;
+
 import java.io.IOException;
+import java.net.UnknownHostException;
 
 
 public final class LogInService {
-    public static Response login(String email, String password){
+    public static boolean logout;
+    public static void login(String email, String password){
         try {
             Response response =  HttpClientService.login(email,password);
-            if (response.getHttpCode() == 200){
-                // if login part is successful - creates session - there it creates a thread
-                Runnable runnable = HttpClientService::setSessionWithServer;
-                Thread thread = new Thread(runnable,"request");
-                thread.start();
+            if (response.getHttpCode() != 200){
+                HelloApplication.getLoginController().failedOnLogin(response.getDescription().toString());
+                return;
             }
-            return HttpClientService.login(email,password);
+            HttpClientService.setSessionWithServer();
+            while (true){
+                Thread.sleep(400);
+                if (Session.getApplicationMe() != null) break;
+            }
+            logout = false;
+            HelloApplication.getLoginController().successfulLogin();
         }catch (IOException e){
-            return new Response("You don`t have permissions",403);
+            HelloApplication.getLoginController().failedOnLogin("Error during connection");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -39,14 +50,8 @@ public final class LogInService {
 
     }
     public static void logOut(){
+        logout = true;
         Session.clearSession();
-        Thread local = Thread.getAllStackTraces().keySet().stream()
-                .filter(thread -> thread.getName().equals("session"))
-                .findAny()
-                .orElse(null);
-        if (local != null && local.isAlive()){
-            local.interrupt();
-        }
         HttpClientService.logout();
         HelloApplication.loadLoginFrame();
 
@@ -73,5 +78,9 @@ public final class LogInService {
         } catch (IOException e) {
             return new Response("Something went wrong",403);
         }
+    }
+
+    public static boolean isLogout() {
+        return logout;
     }
 }

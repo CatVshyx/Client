@@ -1,5 +1,6 @@
 package com.example.client.service;
 
+import com.example.client.HelloApplication;
 import com.example.client.additional.AuthenticationResponse;
 import com.example.client.additional.Response;
 import com.example.client.model.Company;
@@ -7,6 +8,7 @@ import com.example.client.model.Product;
 import com.example.client.model.RegistrationRequest;
 import com.example.client.model.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.application.Platform;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -39,18 +41,13 @@ public class HttpClientService {
             connection.setRequestMethod("GET");
 
             int code = connection.getResponseCode();
-            User me;
             if (code != 200) {
                 System.out.println(code+" "+readValue(connection.getErrorStream()));
             }
-            ObjectMapper mapper = new ObjectMapper();
-            me = mapper.readValue(connection.getInputStream(), User.class);
+            User me = new ObjectMapper().readValue(connection.getInputStream(), User.class);
             Company company = getData();
             Session.setSession(company,me);
-//            System.out.println(Session.getApplicationMe().toString() );
-//            System.out.println(Session.getMyCompany().toString());
-        }catch (IOException e){
-            e.printStackTrace();
+        }catch (IOException ignored){
         }
     }
 
@@ -339,7 +336,6 @@ public class HttpClientService {
         String description = "Something went wrong";
 
         if (code != 200) {
-
             if (connection.getErrorStream() != null)
                 description = readValue(connection.getErrorStream());
         }else{
@@ -383,8 +379,8 @@ public class HttpClientService {
 
         int code = connection.getResponseCode();
         String description;
-        if(code != 200 && code != 403)
-            description = readValue(connection.getErrorStream());
+        if(code == 503){description = "Service is unavailable";}
+        else if(code != 200 && code != 403){ description = readValue(connection.getErrorStream());}
         else {
             InputStream is = connection.getInputStream();
             System.out.println(connection.getResponseMessage());
@@ -405,10 +401,11 @@ public class HttpClientService {
         public void run() {
             while (true){
                 try {
-                    System.out.println("th");
-                    Thread.sleep(1000 * 60 * 60);
+                    Thread.sleep(1000 * 40);
                     HttpClientService.refreshToken();
                 } catch (InterruptedException | IOException e) {
+                    if(!LogInService.isLogout()){ Platform.runLater(LogInService::logOut); }
+                    System.out.println("refresh token stream interrupted");
                     break;
                 }
             }

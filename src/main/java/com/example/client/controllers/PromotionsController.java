@@ -10,6 +10,7 @@ import com.example.client.model.*;
 import com.example.client.ui.cells.DateCell;
 import com.example.client.additional.ControllerExtension;
 import com.example.client.ui.cells.WrapCell;
+import com.example.client.util.Helper;
 import com.example.client.util.SystemClock;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -85,6 +86,7 @@ public class PromotionsController implements ControllerExtension {
         toDefaultProducts.setOnMouseClicked(action -> setToDefaultProducts());
     }
     private void setBestSellersColumns(){
+        tableSellers.setPlaceholder(Helper.getNoContentLabel());
         tableSellers.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
         TableColumn<Product,String> columnName = new TableColumn<>();
         columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -107,6 +109,7 @@ public class PromotionsController implements ControllerExtension {
 
         columnName.setCellFactory(tf -> new WrapCell<>());
         columnName.setMinWidth(160);
+        tableProducts.setPlaceholder(Helper.getNoContentLabel());
         tableProducts.getColumns().add(columnName);
 
 

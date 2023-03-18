@@ -1,12 +1,10 @@
 package com.example.client;
 
 import com.example.client.controllers.*;
-import com.example.client.service.HttpClientService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -25,7 +23,7 @@ public class HelloApplication extends Application {
     static AddPromotionController addPromotionController;
     static HelpController helpController;
     static AdministrationController administrationController;
-
+    static LogInController logInController;
     static ProductEditController productEditController;
     private static void initializeFrames() throws IOException {
         // here are the frames which will be saved in memory
@@ -35,6 +33,9 @@ public class HelloApplication extends Application {
         FXMLLoader.load(HelloApplication.class.getResource("frame_promotions.fxml"));
         FXMLLoader.load(HelloApplication.class.getResource("administration.fxml"));
     }
+
+
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LogForm.fxml"));
@@ -45,7 +46,6 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-
     }
     @Override
     public void stop() throws Exception {
@@ -60,9 +60,7 @@ public class HelloApplication extends Application {
     }
     public static void loadLoginFrame(){
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LogForm.fxml"));
-
-            Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+            Scene scene = new Scene(FXMLLoader.load(HelloApplication.class.getResource("LogForm.fxml")), 1200, 700);
             stage.setScene(scene);
         }catch (IOException e){
             e.printStackTrace();
@@ -81,8 +79,6 @@ public class HelloApplication extends Application {
         }
     }
     public static void main(String[] args) throws IOException, InterruptedException {
-        HttpClientService service = new HttpClientService();
-        service.getGreeting();
         launch();
     }
     public static void setSideBarController(SideBarController sideBarController1){
@@ -130,6 +126,12 @@ public class HelloApplication extends Application {
 
     public static void setAddPromotionController(AddPromotionController addPromotionController) {
         HelloApplication.addPromotionController = addPromotionController;
+    }
+    public static void setLoginController(LogInController lc) {
+        logInController = lc;
+    }
+    public static LogInController getLoginController() {
+        return logInController;
     }
 
     public static SettingsController getSettingsController() {

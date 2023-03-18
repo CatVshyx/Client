@@ -1,9 +1,15 @@
 package com.example.client.util;
 
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.TextAlignment;
+
 import java.io.File;
 import java.time.LocalDate;
 
@@ -49,5 +55,18 @@ public class Helper {
         }
         Image image = new Image(f.toURI().toString(),300,300,false,true);
         circle.setFill(new ImagePattern(image));
+    }
+    public static VBox getNoContentLabel(){
+        Label label =  new Label("No content available");
+        label.setStyle("-fx-font-size:15px;");
+        VBox noContent = new VBox();
+        File f = new File("src/main/resources/com/example/icons/no-content.png");
+        Image image = new Image(f.toURI().toString(),125,75,false,true);
+        noContent.getChildren().addAll(label,new ImageView(image));
+        noContent.setOpacity(0.5);
+        noContent.setSpacing(20);
+        noContent.setAlignment(Pos.CENTER);
+
+        return noContent;
     }
 }

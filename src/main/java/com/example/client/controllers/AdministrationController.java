@@ -9,6 +9,7 @@ import com.example.client.ui.cells.DeleteCell;
 import com.example.client.ui.cells.DotsCell;
 import com.example.client.ui.cells.DoubleInfoCell;
 import com.example.client.additional.ControllerExtension;
+import com.example.client.util.Helper;
 import com.example.client.util.SystemClock;
 import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
@@ -166,6 +167,7 @@ public class AdministrationController implements ControllerExtension {
         tableUsers.getItems().clear();
     }
     private void setTableColumns(){
+        tableUsers.setPlaceholder(Helper.getNoContentLabel());
 
         TableColumn<User,String> column = new TableColumn<>();
         column.setCellValueFactory(new PropertyValueFactory<>("userInfo"));

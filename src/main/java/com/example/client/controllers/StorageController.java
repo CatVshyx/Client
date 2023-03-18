@@ -8,6 +8,7 @@ import com.example.client.ui.cells.DoubleInfoCell;
 import com.example.client.additional.Category;
 import com.example.client.additional.ControllerExtension;
 import com.example.client.ui.cells.WrapCell;
+import com.example.client.util.Helper;
 import com.example.client.util.SystemClock;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -94,6 +95,8 @@ public class StorageController implements ControllerExtension{
     }
     private void configureTableColumns(){
         // BEST SELLERS
+        tableBestSellers.setPlaceholder(Helper.getNoContentLabel());
+
         tableBestSellers.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
 
         productName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -102,6 +105,7 @@ public class StorageController implements ControllerExtension{
         sold.setCellValueFactory(new PropertyValueFactory<>("fullAmount"));
         sold.setCellFactory(callback -> new DoubleInfoCell<>(false));
         // TABLE PRODUCTS
+        tableProducts.setPlaceholder(Helper.getNoContentLabel());
         tableProducts.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
         product.setCellValueFactory(new PropertyValueFactory<>("name"));
         product.setCellFactory(callback -> new WrapCell<>());

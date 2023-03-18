@@ -23,6 +23,7 @@ import javafx.scene.shape.Rectangle;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.*;
 import static com.example.client.controllers.SideBarController.*;
 
@@ -177,6 +178,7 @@ public class LogInController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        HelloApplication.setLoginController(this);
         configureJoinCreatePaneLogic();
         configurePaneSendEmailForCodeLogic();
         configurePaneWriteSentCode();
@@ -197,38 +199,36 @@ public class LogInController implements Initializable {
         qCodeButton.setOnAction(actionEvent -> setQCodeAnimation());
         hpLink.setOnAction(action -> openWebpage());
         cancelCode.setOnAction(actionEvent -> paneWriteSentCode.setVisible(false));
-        confirmLogin.setOnAction(action -> {
-            try {
-                login(loginEmail.getText(),loginPassword.getText());
-            } catch (IOException | InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
+        confirmLogin.setOnAction(action -> login(loginEmail.getText(),loginPassword.getText()));
         onCreated.setOnMouseEntered(action -> onCreated.setVisible(false));
         signUpButton.setOnAction(action -> register());
         arr = new TextField[]{Sname, Sphone, Spassword, Semail,Sconfirm,loginEmail,loginPassword,textfieldPopUp,newResetedPassword,fieldEmailToSentdCode,fieldWriteSentCode,confirmResetedPassword};
     }
-    private void login(String email, String password) throws IOException, InterruptedException {
+    private void login(String email, String password){
         loginPaneError.setVisible(true);
-        if (loginPassword.getText() == null || loginEmail.getText() == null){
+        if (loginPassword.getText().length()  < 3 || loginEmail.getText().length() < 5){
             loginPaneError.setText("Fill all the fields");
             return;
         }
-        Response response = LogInService.login(email,password);
-        if (response.getHttpCode() != 200){
-            loginPaneError.setText(response.getDescription().toString());
-            return;
-        }
-        loginPaneError.setVisible(false);
-        clearAllFields();
 
-        Thread.sleep(1000);
-        if (Session.getApplicationMe().getCompany() != 0){
+        LogInService.login(email,password);
+
+
+    }
+    public void successfulLogin(){
+        clearAllFields();
+        System.out.println("successful login");
+        joinPane.setVisible(true);
+        if (Session.getMyCompany() != null){
             loadOnSuccess();
             return;
         }
-        joinPane.setVisible(true);
-
+//        joinPane.setVisible(true);
+//        loginPaneError.setVisible(false);
+    }
+    public void failedOnLogin(String description){
+        loginPaneError.setText(description);
+        System.out.println(description);
     }
     private void configureJoinCreatePaneLogic(){
         logOut.setOnAction(action -> LogInService.logOut());
@@ -325,11 +325,8 @@ public class LogInController implements Initializable {
             paneWriteSentCode.setVisible(false);
             resetPasswordByCodePane.setVisible(false);
             System.out.println("Successfully changed");
-            try {
-                login(fieldEmailToSentdCode.getText(),confirmPass);
-            } catch (IOException | InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+
+            login(fieldEmailToSentdCode.getText(),confirmPass);
 
 
         });

@@ -1,8 +1,11 @@
 package com.example.client.service;
 
+import com.example.client.HelloApplication;
 import com.example.client.model.Company;
 import com.example.client.model.Product;
 import com.example.client.model.User;
+import javafx.application.Platform;
+
 import java.util.Set;
 
 public class Session {
@@ -26,10 +29,11 @@ public class Session {
         // if the user is a member of a company
         // and it sets session stream - another thread with Tasks (every 5 minutes sends request to update data )
         System.out.println("set session");
+        Thread.getAllStackTraces().keySet().forEach(thread1 -> System.out.println("                   -"+thread1.getName()));
         myCompany = company;
         applicationMe = me;
         if (myCompany == null || me == null){
-            if(thread.isAlive()){ thread.interrupt(); }
+            if(thread != null && thread.isAlive()){ thread.interrupt(); }
             return;
         }
         Set<Product> productSet = myCompany.getProducts();
@@ -54,7 +58,9 @@ public class Session {
         DiscountService.clearDiscountData();
         FinanceService.clearFinanceData();
         AdministrationService.clearAdministrationData();
-        if (thread != null && thread.isAlive()){thread.interrupt();};
+        if (thread != null && thread.isAlive()){
+            thread.interrupt();
+        }
     }
     static class SessionStream implements Runnable{
         @Override
@@ -62,10 +68,11 @@ public class Session {
             try {
                 while (true){
                     System.out.println("SESSION UPDATED");
-                    Thread.sleep(1000 * 60 * 5);
+                    Thread.sleep(1000 * 60);
                     HttpClientService.setSessionWithServer();
                 }
             } catch (InterruptedException e) {
+                if(!LogInService.isLogout()){ Platform.runLater(LogInService::logOut); }
                 System.out.println("session stream was interrupted");
             }
         }
