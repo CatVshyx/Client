@@ -1,16 +1,15 @@
 package com.example.client.service;
 
-import com.example.client.HelloApplication;
 import com.example.client.additional.AuthenticationResponse;
 import com.example.client.additional.Response;
 import com.example.client.model.Company;
 import com.example.client.model.Product;
 import com.example.client.model.RegistrationRequest;
 import com.example.client.model.User;
+import com.example.client.util.PropertyUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.application.Platform;
 import org.json.JSONObject;
-
 import java.io.*;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
@@ -18,7 +17,10 @@ import java.nio.file.Files;
 import java.util.HashMap;
 
 public class HttpClientService {
-    private static final String standartURL = "https://test-back-ncm8.onrender.com/";
+//    "https://test-server-spring.onrender.com/"
+//    https://test-back-ncm8.onrender.com/
+//    https://localhost:8080/
+    private static final String standartURL = PropertyUtil.read("server.link");
     private static AuthenticationResponse tokens;
     public static void logout() {
         tokens = null;
@@ -41,13 +43,16 @@ public class HttpClientService {
             connection.setRequestMethod("GET");
 
             int code = connection.getResponseCode();
+            System.out.println("code " +code);
             if (code != 200) {
                 System.out.println(code+" "+readValue(connection.getErrorStream()));
             }
+
             User me = new ObjectMapper().readValue(connection.getInputStream(), User.class);
             Company company = getData();
             Session.setSession(company,me);
         }catch (IOException ignored){
+            ignored.printStackTrace();
         }
     }
 
@@ -97,7 +102,6 @@ public class HttpClientService {
         HttpURLConnection connection = makeRequest("res/deleteProduct","DELETE");
         connection.setRequestProperty("Authorization", "Bearer " + tokens.getAccess_token());
 
-//        String obj  = new ObjectMapper().writeValueAsString(product);
         JSONObject object = new JSONObject();
         object.put("id",product.getId());
 
@@ -202,53 +206,20 @@ public class HttpClientService {
         writeRequest(connection,request);
         return getResponse(connection);
     }
-
-    public void getGreeting() throws IOException {
-        HttpURLConnection connection = makeRequest("auth/","GET");
-        StringBuffer responseDescription = new StringBuffer();
-
-        try (BufferedInputStream bis = new BufferedInputStream(connection.getInputStream())) {
-            int c;
-            while ((c = bis.read()) != -1) {
-                responseDescription.append((char) c);
-            }
-            System.out.println(responseDescription);
-        }
-        connection.disconnect();
-
-    }
-
-    public static File getUserPhoto(String userEmail) throws IOException {
-        HttpURLConnection connection = makeRequest("company/loadUserImage" + "?email=%s".formatted(userEmail),"GET");
+    public static InputStream getUserPhoto(String id) throws IOException {
+        HttpURLConnection connection = makeRequest("auth/media/" + id,"GET");
         connection.setRequestProperty("Authorization", "Bearer " + tokens.getAccess_token());
-
-        File file = new File("src/main/resources/templates/"+userEmail+"_photo.png");
-        if (!file.exists()) {file.createNewFile();}
-        else {return file;}
-
-        try (BufferedInputStream inputStream = new BufferedInputStream(connection.getInputStream());
-             FileOutputStream outputStream = new FileOutputStream(file)) {
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = inputStream.read(buffer)) != -1) {
-                outputStream.write(buffer, 0, bytesRead);
-            }
-            outputStream.flush();
-
+        System.out.println(id);
+        int code = connection.getResponseCode();
+        if (code != 200) {
+            getResponse(connection);
         }
-        System.out.println("wrote");
-        Response response = getResponse(connection);
-        System.out.println(response);
-        if (response.getHttpCode() != 200){
-            file.delete();
-            return null;
-        }
-        return file;
+        return connection.getInputStream();
     }
 
 
     public static Response uploadNewPhoto(String filePath) throws IOException {
-        URL url = new URL(standartURL + "user/uploadUserPhoto");
+        URL url = new URL(standartURL + "user/uploadPhoto");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         System.out.println(filePath);
         connection.setRequestProperty("Authorization", "Bearer " + tokens.getAccess_token());

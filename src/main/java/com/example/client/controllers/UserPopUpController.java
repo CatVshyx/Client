@@ -9,6 +9,7 @@ import com.example.client.additional.PopUpUtility;
 import com.example.client.service.AdministrationService;
 import javafx.fxml.Initializable;
 import java.io.File;
+import java.io.InputStream;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -27,10 +28,8 @@ import static com.example.client.util.Helper.setPictureOnImage;
 public class UserPopUpController extends PopUpUtility implements Initializable , ControllerExtension {
     @FXML
     private Text additionalInformation;
-
     @FXML
     private CheckBox admin_edit;
-
     @FXML
     private CheckBox admin_view;
 
@@ -133,8 +132,8 @@ public class UserPopUpController extends PopUpUtility implements Initializable ,
         additionalInformation.setText(user.getEmail());
         userRole.setText(user.getRole());
         phone.setText(user.getPhoneNumber());
-        File f = AdministrationService.getUserPhoto(user.getEmail());
-        setPictureOnImage(f,userPhoto);
+        InputStream is = AdministrationService.getUserPhoto(user.getPhotos());
+        setPictureOnImage(is,userPhoto);
         showConfirmFrame(false);
         errorLabel.setVisible(false);
     }
@@ -150,8 +149,6 @@ public class UserPopUpController extends PopUpUtility implements Initializable ,
 
     @Override
     public Pane getFrame() {
-        System.out.println("GOT FRAME ");
-        System.out.println(pane.getLayoutX() + " " + pane.getLayoutY() );
         return pane;
     }
 }

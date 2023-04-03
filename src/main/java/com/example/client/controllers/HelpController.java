@@ -43,7 +43,7 @@ public class HelpController implements ControllerExtension {
     @FXML
     private Label aboutProject;
 
-    private final Image confirm = new Image(new File("src/main/resources/com/example/icons/storage/accept.png").toURI().toString());
+    private final Image confirm = new Image(new File("src/main/resources/com/example/icons/main/storage/accept.png").toURI().toString());
     Label label;
     Button b;
 
@@ -102,8 +102,8 @@ public class HelpController implements ControllerExtension {
                     splitPane.lookupAll(".split-pane-divider").forEach(div ->  div.setMouseTransparent(true) );
                 }
             }
-            setPicture((Circle) loader.getNamespace().get("devDima"), "src/main/resources/com/example/icons/devDima.jpg");
-            setPicture((Circle) loader.getNamespace().get("devVlad"), "src/main/resources/com/example/icons/devVlad.jpg");
+            setPicture((Circle) loader.getNamespace().get("devDima"), "src/main/resources/com/example/icons/main/devDima.jpg");
+            setPicture((Circle) loader.getNamespace().get("devVlad"), "src/main/resources/com/example/icons/main/devVlad.jpg");
 
             HelloApplication.getSideBarController().addPane(pane);
         } catch (IOException e) {

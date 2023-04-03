@@ -3,7 +3,6 @@ package com.example.client.model;
 public class RegistrationRequest {
     private final String email;
     private final String username;
-
     private final String password;
     private final String number;
 
@@ -13,7 +12,6 @@ public class RegistrationRequest {
         this.password = password;
         this.number = phone;
     }
-
     public String getUsername() {
         return username;
     }

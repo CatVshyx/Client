@@ -19,8 +19,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import org.json.JSONObject;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -113,8 +111,6 @@ public class ProductEditController extends PopUpUtility implements ControllerExt
     private Label supplier;
 
     private Label[] array;
-
-
     private boolean isEditing = false;
 
     private Product currProduct;

@@ -19,7 +19,7 @@ public class User {
     private LocalDate dateOfCreation;
 
     private Allows[] allows;
-    private String path;
+    private String photos;
     private String phoneNumber = "undefined";
     private int company;
     private boolean verified;
@@ -75,12 +75,12 @@ public class User {
         this.allows = allows;
     }
 
-    public String getPath() {
-        return path;
+    public String getPhotos() {
+        return photos;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setPhotos(String path) {
+        this.photos = path;
     }
 
     public String getPhoneNumber() {
@@ -126,7 +126,7 @@ public class User {
                 ", role='" + role + '\'' +
                 ", dateOfCreation=" + dateOfCreation +
                 ", allows=" + Arrays.toString(allows) +
-                ", path='" + path + '\'' +
+                ", path='" + photos + '\'' +
                 ", phone='" + phoneNumber + '\'' +
                 ", company=" + company +
                 ", verified=" + verified +

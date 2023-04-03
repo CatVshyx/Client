@@ -229,7 +229,7 @@
                   </Pane>
                   <ImageView fitHeight="99.0" fitWidth="111.0" layoutX="255.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icons/logo_example.png" />
+                        <Image url="@../icons/main/icon_app.png" />
                      </image>
                   </ImageView>
                </children>

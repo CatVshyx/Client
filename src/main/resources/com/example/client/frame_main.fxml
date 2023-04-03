@@ -164,7 +164,7 @@
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icons/grey_plus.png" />
+                                    <Image url="@../icons/main/grey_plus.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -175,7 +175,7 @@
                               <TextField id="search" fx:id="searchField" layoutY="-1.0" prefHeight="30.0" prefWidth="130.0" promptText="Search..." />
                               <ImageView fx:id="loop" fitHeight="15.0" fitWidth="15.0" layoutX="105.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icons/loop.png" />
+                                    <Image url="@../icons/main/loop.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -185,7 +185,7 @@
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icons/grey_plus.png" />
+                                    <Image url="@../icons/main/grey_plus.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -229,7 +229,7 @@
                                  <children>
                                     <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../icons/grey_plus.png" />
+                                          <Image url="@../icons/main/grey_plus.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -261,7 +261,7 @@
                <graphic>
                   <ImageView fitHeight="18.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icons/grey_plus.png" />
+                        <Image url="@../icons/main/grey_plus.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -271,7 +271,7 @@
             <Label layoutX="20.0" layoutY="77.0" text="Rate" />
             <ImageView fx:id="uploadCurrency" fitHeight="20.0" fitWidth="20.0" layoutX="243.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering">
                <image>
-                  <Image url="@../icons/download_arrow.png" />
+                  <Image url="@../icons/main/download_arrow.png" />
                </image>
             </ImageView>
             <Label fx:id="errorOnCurrency" layoutX="20.0" layoutY="110.0" text="Error" textFill="#b00000" visible="false">

@@ -4,7 +4,9 @@ import com.example.client.HelloApplication;
 import com.example.client.additional.Response;
 import com.example.client.model.User;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 public  class AdministrationService {
@@ -47,9 +49,13 @@ public  class AdministrationService {
             return new Response("You don`t have permissions",403);
         }
     }
-    public static File getUserPhoto(String email){
+    public static InputStream getUserPhoto(String id){
         try {
-            return HttpClientService.getUserPhoto(email);
+            if (id == null){
+                File f = new File("src/main/resources/com/example/icons/default_user.png");
+                return new FileInputStream(f);
+            }
+            return HttpClientService.getUserPhoto(id);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

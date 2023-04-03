@@ -3,7 +3,6 @@ module com.example.client {
     requires javafx.fxml;
     requires java.desktop;
     requires json;
-
     requires javafx.swing;
     requires layout;
     requires kernel;
@@ -13,6 +12,7 @@ module com.example.client {
     requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.datatype.jsr310;
+    requires javafx.web;
 
     opens com.example.client to javafx.fxml;
     opens com.example.client.model to javafx.fxml;

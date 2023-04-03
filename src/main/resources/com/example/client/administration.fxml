@@ -183,7 +183,7 @@
                      <graphic>
                         <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icons/link_icon.png" />
+                              <Image url="@../icons/main/link_icon.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -199,7 +199,7 @@
                   </Label>
                   <ImageView fitHeight="64.0" fitWidth="69.0" layoutX="103.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icons/email.png" />
+                        <Image url="@../icons/main/email.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="closeInvitation" layoutX="75.0" layoutY="296.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="buttonWhite" text="Ok" />

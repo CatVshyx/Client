@@ -1,6 +1,5 @@
 package com.example.client.ui.cells;
 
-import com.example.client.model.Discount;
 import com.example.client.model.Product;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;

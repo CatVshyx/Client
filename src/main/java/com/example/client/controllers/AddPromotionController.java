@@ -15,7 +15,6 @@ import javafx.scene.layout.AnchorPane;
 import static com.example.client.util.Helper.*;
 
 public class AddPromotionController extends PopUpUtility implements ControllerExtension {
-
     @FXML
     private Button addPromotion;
 

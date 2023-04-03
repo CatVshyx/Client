@@ -10,6 +10,7 @@ import com.example.client.service.LogInService;
 import com.example.client.service.Session;
 import com.example.client.service.StorageService;
 import com.example.client.util.ConverterFactory;
+import com.example.client.util.PropertyUtil;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.beans.property.Property;
@@ -32,7 +33,10 @@ import org.json.JSONObject;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
+import java.util.Properties;
+
 import static com.example.client.util.Helper.setPictureOnImage;
 
 public class SideBarController {
@@ -163,7 +167,7 @@ public class SideBarController {
 
     public void initialize(){
         HelloApplication.setSideBarController(this);
-        setMe();
+        setMe(AdministrationService.getUserPhoto(Session.getApplicationMe().getPhotos()));
         configureFrameChangeButtons();
         configureAddFinancePane();
         configureSellPane();
@@ -183,7 +187,7 @@ public class SideBarController {
                 });
             }
         });
-
+        downloadButton.setOnAction(actionEvent -> openWebpage());
         cancel.setOnAction(actionEvent -> {
             setSceneOpacity(1);
             log_out_frame.setVisible(false);
@@ -376,12 +380,9 @@ public class SideBarController {
 
         });
     }
-    void setMe(){
-        User me = Session.getApplicationMe();
-        File f = AdministrationService.getUserPhoto(me.getEmail());
-
-        username.setText(me.getName());
-        setPictureOnImage(f,circle);
+    void setMe(InputStream inputStream){
+        username.setText(Session.getApplicationMe().getName());
+        setPictureOnImage(inputStream,circle);
         circle.setOnMouseEntered(action -> circle.setOpacity(0.7));
         circle.setOnMouseExited(action -> circle.setOpacity(1));
     }
@@ -402,7 +403,7 @@ public class SideBarController {
     static void openWebpage() {
         try{
             Desktop desktop = Desktop.getDesktop();
-            desktop.browse(new URI("https://www.youtube.com/watch?v=SCmYu3iDYtE"));
+            desktop.browse(new URI(PropertyUtil.read("apple.link")));
         }catch (Exception e){
             e.printStackTrace();
         }

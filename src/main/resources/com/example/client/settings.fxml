@@ -140,7 +140,7 @@
             <TextField fx:id="phoneNumber" layoutX="27.0" layoutY="209.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: rgba(113, 115, 177, 0.4); -fx-border-radius: 15;" />
             <ImageView fx:id="leaveCompanyButton" fitHeight="27.0" fitWidth="25.0" layoutX="167.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="simpleHovering">
                <image>
-                  <Image url="@../icons/leave-svgrepo-com.png" />
+                  <Image url="@../icons/main/leave-svgrepo-com.png" />
                </image>
             </ImageView>
             <Label fx:id="errorMainPane" layoutX="26.0" layoutY="296.0" text="Label" textFill="#b00000" visible="false">

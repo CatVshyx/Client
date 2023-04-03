@@ -19,20 +19,17 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.stream.Stream;
-
 import static com.example.client.util.Helper.setPictureOnImage;
 
 public class SettingsController extends PopUpUtility implements ControllerExtension {
     @FXML
     private ImageView leaveCompanyButton;
-
-
     @FXML
     private Label admin_edit;
 
@@ -149,24 +146,10 @@ public class SettingsController extends PopUpUtility implements ControllerExtens
                 System.out.println("Is not ok");
                 return;
             }
-            if (photo){
-                System.out.println("uploading");
-                Thread thread = new Thread(uploadPhoto(f.toPath().toString()),"photo");
-                thread.start();
-                try {
-                    File prevFile = new File("src/main/resources/templates/"+me.getEmail()+"_photo.png");
-                    if (!prevFile.exists()){
-                        prevFile.createNewFile();
-                    }
-                    Files.copy(f.toPath(),prevFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
+            if (photo)
+                uploadPhoto(f.toPath().toString());
 
             HttpClientService.setSessionWithServer();
-            HelloApplication.getSideBarController().setMe();
-
 
             confirmFrame.setVisible(true);
             settingsPane.setVisible(false);
@@ -218,18 +201,21 @@ public class SettingsController extends PopUpUtility implements ControllerExtens
         saveButton.fire();
 
     }
-
-    private Runnable uploadPhoto(String path){
+    private void uploadPhoto(String path){
+        System.out.println("uploading");
         Runnable runnable = () -> {
             Response response = SettingsService.uploadPhoto(path);
             System.out.println(response);
         };
-        return runnable;
+        new Thread(runnable,"photo").start();
+        try(FileInputStream fis = new FileInputStream(f)) {HelloApplication.getSideBarController().setMe(fis);}
+        catch (IOException e) {throw new RuntimeException(e);}
     }
+
     void setMe(){
         User me = Session.getApplicationMe();
-        File f = AdministrationService.getUserPhoto(me.getEmail());
-        setPictureOnImage(f,userPhoto);
+        InputStream is = AdministrationService.getUserPhoto(me.getPhotos());
+        setPictureOnImage(is,userPhoto);
         username.setText(me.getName() == null ? "Random" : me.getName());
         email.setText(me.getEmail());
         userRole.setText(me.getRole());

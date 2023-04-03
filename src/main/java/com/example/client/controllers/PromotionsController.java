@@ -72,7 +72,7 @@ public class PromotionsController implements ControllerExtension {
     private int currDiscount = 4;
     private ArrayList<Category> chosenCategories = new ArrayList<>();
     private ArrayList<Month> chosenMonths = new ArrayList<>();
-    AnchorPane pane;
+    private AnchorPane pane;
     boolean isDefault = true;
 
     public void initialize(){
@@ -180,11 +180,9 @@ public class PromotionsController implements ControllerExtension {
             pane.getChildren().add(currButton);
         }
         arr[0].setOnAction(actionEvent -> {
-//            HelloApplication.getAddPromotionController().setDiscountFromProduct(product);
             HelloApplication.getSideBarController().removePane(pane);
             HelloApplication.getSideBarController().setPopUp("addPromotionMomento.fxml");
             HelloApplication.getAddPromotionController().setDiscountFromProduct(product);
-//            HelloApplication.getSideBarController().addPane(HelloApplication.getAddPromotionController().getFrame());
         });
         arr[1].setOnAction(actionEvent -> HelloApplication.getSideBarController().removePane(pane));
 
@@ -201,7 +199,6 @@ public class PromotionsController implements ControllerExtension {
     private void sortProducts(){
         isDefault = false;
 
-        // if the chosen option is full then i filter it
         Stream<Product> productStream = DiscountService.getDiscounts().stream();
         if(chosenCategories.size() > 0) productStream = productStream.filter( product -> chosenCategories.contains(product.getCategory()));
         if (chosenMonths.size() > 0) productStream = productStream.filter(product -> chosenMonths.contains( product.getDiscount().getEndDate().getMonth() ));
@@ -214,7 +211,6 @@ public class PromotionsController implements ControllerExtension {
         }
         tableProducts.setItems(FXCollections.observableArrayList(productStream.toList()));
 
-        // responsible for rendering
         tableProducts.refresh();
     }
     private void sortProductsByDiscount(String value){
@@ -254,7 +250,6 @@ public class PromotionsController implements ControllerExtension {
     private void configureMenus(){
         // setting arrows for menus
 
-        // CHANGE AS IN STORAGE
         File f = new File("src/main/resources/com/example/icons/storage/arrow.png");
         Image image  = new Image(f.toURI().toString());
         String[] localArray = {"Discounts","Months","Categories"};
@@ -312,7 +307,6 @@ public class PromotionsController implements ControllerExtension {
     }
 
     public void setDiscountData(List<Product> discounts) {
-        System.out.println("setting data " + discounts.size());
         tableProducts.setItems(FXCollections.observableArrayList(discounts));
         goodsAmount.setText(String.valueOf(discounts.size()));
 

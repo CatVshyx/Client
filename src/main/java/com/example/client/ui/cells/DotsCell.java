@@ -1,7 +1,6 @@
 package com.example.client.ui.cells;
 
 import com.example.client.HelloApplication;
-import com.example.client.model.Discount;
 import com.example.client.model.Product;
 import com.example.client.model.User;
 import javafx.scene.control.Button;
@@ -10,8 +9,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-
 import java.io.File;
 
 public class DotsCell<S> extends TableCell<S,Boolean> {

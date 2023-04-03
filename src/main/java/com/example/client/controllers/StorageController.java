@@ -90,7 +90,6 @@ public class StorageController implements ControllerExtension{
         initializeSortBoxes(priceBox,tableProducts);
         initializeSortBoxes(amountBox,tableBestSellers);
 
-//        goodsAmount.setText(String.valueOf(StorageService.getSize()));
         goodsAmount.textProperty().bind(amountProperty);
     }
     private void configureTableColumns(){
@@ -242,13 +241,11 @@ public class StorageController implements ControllerExtension{
     public void clearStorageData(){
         tableProducts.getItems().clear();
         tableBestSellers.getItems().clear();
-
     }
     public void setStorageData(List<Product> args){
         System.out.println("setting data " + args.size());
         products.setAll(args);
         tableProducts.setItems(products);
-//        goodsAmount.setText(String.valueOf(args.size()));
         amountProperty.set(String.valueOf(args.size()));
         ObservableList<Product> newList = FXCollections.observableArrayList(StorageService.getMainProducts()
                 .stream()
@@ -277,13 +274,11 @@ public class StorageController implements ControllerExtension{
     public void removeProductFromTable(Product product){
         products.remove(product);
         amountProperty.set(String.valueOf(StorageService.getSize()));
-//        goodsAmount.setText(String.valueOf(StorageService.getSize()));
         checkSupplier(product.getSupplier(),true);
         tableProducts.refresh();
     }
     public void addProductToTable(Product product){
         products.add(product);
-//        goodsAmount.setText(String.valueOf(StorageService.getSize()));
         amountProperty.set(String.valueOf(StorageService.getSize()));
         checkSupplier(product.getSupplier(),false);
         tableProducts.refresh();

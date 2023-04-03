@@ -148,9 +148,6 @@ public class AdministrationController implements ControllerExtension {
         tableUsers.getItems().remove(user);
         tableUsers.refresh();
     }
-    public void setUsersAmount(long value){
-        amountUsers.setText(String.valueOf(value));
-    }
     private void clearInvite(){
         emailField.setText(null);
         boxes.forEach(box -> box.setSelected(false));

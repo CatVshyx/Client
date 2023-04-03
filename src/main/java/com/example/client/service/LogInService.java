@@ -2,13 +2,8 @@ package com.example.client.service;
 
 import com.example.client.HelloApplication;
 import com.example.client.additional.Response;
-import com.example.client.controllers.LogInController;
 import com.example.client.model.RegistrationRequest;
-import com.example.client.model.User;
-
 import java.io.IOException;
-import java.net.UnknownHostException;
-
 
 public final class LogInService {
     public static boolean logout;
@@ -21,7 +16,8 @@ public final class LogInService {
             }
             HttpClientService.setSessionWithServer();
             while (true){
-                Thread.sleep(400);
+                Thread.sleep(200);
+
                 if (Session.getApplicationMe() != null) break;
             }
             logout = false;

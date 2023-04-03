@@ -21,9 +21,7 @@ import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
 import javafx.scene.shape.Rectangle;
 import org.json.JSONObject;
-import java.io.IOException;
 import java.net.URL;
-import java.net.UnknownHostException;
 import java.util.*;
 import static com.example.client.controllers.SideBarController.*;
 
@@ -173,8 +171,8 @@ public class LogInController implements Initializable {
     @FXML
     private TextField textfieldPopUp;
 
-    boolean Qstate = false;
-    TextField[] arr;
+    private boolean Qstate = false;
+    private TextField[] arr;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -195,7 +193,7 @@ public class LogInController implements Initializable {
                 loginPaneError.setVisible(false);
 
         });
-
+        downloadButton.setOnAction(action ->  SideBarController.openWebpage());
         qCodeButton.setOnAction(actionEvent -> setQCodeAnimation());
         hpLink.setOnAction(action -> openWebpage());
         cancelCode.setOnAction(actionEvent -> paneWriteSentCode.setVisible(false));
@@ -212,8 +210,6 @@ public class LogInController implements Initializable {
         }
 
         LogInService.login(email,password);
-
-
     }
     public void successfulLogin(){
         clearAllFields();
@@ -221,13 +217,10 @@ public class LogInController implements Initializable {
         joinPane.setVisible(true);
         if (Session.getMyCompany() != null){
             loadOnSuccess();
-            return;
         }
-//        joinPane.setVisible(true);
-//        loginPaneError.setVisible(false);
     }
     public void failedOnLogin(String description){
-        loginPaneError.setText(description);
+        loginPaneError.setText(description.startsWith("<!") ? "Server is not running" : description);
         System.out.println(description);
     }
     private void configureJoinCreatePaneLogic(){

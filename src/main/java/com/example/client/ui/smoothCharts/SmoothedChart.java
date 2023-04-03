@@ -1,27 +1,15 @@
 package com.example.client.ui.smoothCharts;
 
-
-import com.sun.javafx.charts.Legend;
+//import com.sun.javafx.charts.Legend;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.BooleanPropertyBase;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.DoublePropertyBase;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.IntegerPropertyBase;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.ObjectPropertyBase;
+import javafx.beans.property.*;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Bounds;
-import javafx.geometry.Dimension2D;
-import javafx.geometry.Insets;
-import javafx.geometry.Point2D;
-import javafx.geometry.Side;
+import javafx.geometry.*;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.chart.AreaChart;
@@ -31,23 +19,10 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
-import javafx.scene.layout.BorderStrokeStyle;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.ClosePath;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.LineTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
-import javafx.scene.shape.PathElement;
+import javafx.scene.shape.*;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -584,50 +559,50 @@ public class SmoothedChart<X, Y> extends AreaChart<X, Y> {
         setLegendBackground(new Background(new BackgroundFill(FILL, CornerRadii.EMPTY, Insets.EMPTY)));
     }
     public void setLegendBackground(final Background BACKGROUND) {
-        Legend legend = (Legend) getLegend();
-        if (null == legend) { return; }
-        legend.setBackground(BACKGROUND);
+//        Legend legend = (Legend) getLegend();
+//        if (null == legend) { return; }
+//        legend.setBackground(BACKGROUND);
     }
 
     public void setLegendTextFill(final Paint FILL) { getData().forEach(series -> setLegendTextFill(series, FILL)); }
     public void setLegendTextFill(final Series<X, Y> SERIES, final Paint FILL) {
-        if (getData().isEmpty()) { return; }
-        if (!getData().contains(SERIES)) { return; }
-
-        int seriesIndex = getData().indexOf(SERIES);
-        if (seriesIndex == -1) { return; }
-
-        Legend legend = (Legend) getLegend();
-        if (null == legend) { return; }
-
-        Legend.LegendItem item = legend.getItems().get(seriesIndex);
-        if (null == item) { return; }
-
-        String itemText = item.getText();
-        for (Node node : legend.lookupAll(".chart-legend-item")) {
-            if (node instanceof Label) {
-                Label label = (Label) node;
-                if (label.getText().equals(itemText)) { label.setTextFill(FILL); }
-            }
-        }
+//        if (getData().isEmpty()) { return; }
+//        if (!getData().contains(SERIES)) { return; }
+//
+//        int seriesIndex = getData().indexOf(SERIES);
+//        if (seriesIndex == -1) { return; }
+//
+//        Legend legend = (Legend) getLegend();
+//        if (null == legend) { return; }
+//
+//        Legend.LegendItem item = legend.getItems().get(seriesIndex);
+//        if (null == item) { return; }
+//
+//        String itemText = item.getText();
+//        for (Node node : legend.lookupAll(".chart-legend-item")) {
+//            if (node instanceof Label) {
+//                Label label = (Label) node;
+//                if (label.getText().equals(itemText)) { label.setTextFill(FILL); }
+//            }
+//        }
     }
     public void setLegendSymbolFill(final Series<X, Y> SERIES, final Paint LEGEND_SYMBOL_FILL) {
-        if (getData().isEmpty()) { return; }
-        if (!getData().contains(SERIES)) { return; }
-
-        int seriesIndex = getData().indexOf(SERIES);
-        if (seriesIndex == -1) { return; }
-
-        Legend legend = (Legend) getLegend();
-        if (null == legend) { return; }
-
-        Legend.LegendItem item = legend.getItems().get(seriesIndex);
-        if (null == item) { return; }
-
-        Region symbol = (Region) item.getSymbol();
-        if (null == symbol) { return; }
-
-        symbol.setBackground(new Background(new BackgroundFill(LEGEND_SYMBOL_FILL, new CornerRadii(6), Insets.EMPTY)));
+//        if (getData().isEmpty()) { return; }
+//        if (!getData().contains(SERIES)) { return; }
+//
+//        int seriesIndex = getData().indexOf(SERIES);
+//        if (seriesIndex == -1) { return; }
+//
+//        Legend legend = (Legend) getLegend();
+//        if (null == legend) { return; }
+//
+//        Legend.LegendItem item = legend.getItems().get(seriesIndex);
+//        if (null == item) { return; }
+//
+//        Region symbol = (Region) item.getSymbol();
+//        if (null == symbol) { return; }
+//
+//        symbol.setBackground(new Background(new BackgroundFill(LEGEND_SYMBOL_FILL, new CornerRadii(6), Insets.EMPTY)));
     }
 
     public void setXAxisTickMarkFill(final Paint FILL) {

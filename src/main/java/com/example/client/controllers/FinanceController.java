@@ -35,12 +35,8 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class FinanceController implements ControllerExtension {
-
-
-
     @FXML
     private AnchorPane yearPane;
-
     @FXML
     private Label currencyDay;
     @FXML
@@ -178,9 +174,9 @@ public class FinanceController implements ControllerExtension {
         setInfoOnBounded(revYear,String.valueOf(currAmount));
 //        revY
 
-        yearLabel.setText(beginMonth.name() + " " +
+        yearLabel.setText(beginMonth.name() + ' ' +
                 currDate.getYear() + '-' +
-                endMonth.name() + (" " + currDate.getYear())
+                endMonth.name() + (' ' + currDate.getYear())
         );
 
     }

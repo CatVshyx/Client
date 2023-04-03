@@ -1,11 +1,9 @@
 package com.example.client.service;
 
-import com.example.client.HelloApplication;
 import com.example.client.model.Company;
 import com.example.client.model.Product;
 import com.example.client.model.User;
 import javafx.application.Platform;
-
 import java.util.Set;
 
 public class Session {
@@ -28,7 +26,7 @@ public class Session {
         // This method sets given data to all the services - discount admin, storage finance
         // if the user is a member of a company
         // and it sets session stream - another thread with Tasks (every 5 minutes sends request to update data )
-        System.out.println("set session");
+        System.out.println("set session " + company.toString() + "  \n user" + me.toString());
         Thread.getAllStackTraces().keySet().forEach(thread1 -> System.out.println("                   -"+thread1.getName()));
         myCompany = company;
         applicationMe = me;

@@ -11,8 +11,6 @@ import java.util.Set;
 public class StorageService {
     // on creation just new arraylist
     private static final List<Product> mainProducts = new ArrayList<>();
-
-
     public static Product findProductByName(String name){
         return mainProducts.stream()
                 .filter(productTest -> productTest.getName().equals(name))

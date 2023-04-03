@@ -4,9 +4,11 @@ import com.example.client.controllers.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Properties;
 
 
 public class HelloApplication extends Application {
@@ -25,6 +27,8 @@ public class HelloApplication extends Application {
     static AdministrationController administrationController;
     static LogInController logInController;
     static ProductEditController productEditController;
+
+    private static final Properties properties = new Properties();
     private static void initializeFrames() throws IOException {
         // here are the frames which will be saved in memory
         FXMLLoader.load(HelloApplication.class.getResource("help_frame.fxml"));
@@ -42,21 +46,11 @@ public class HelloApplication extends Application {
         initializeFrames();
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         HelloApplication.stage = stage;
-        stage.setTitle("Hello!");
+        stage.getIcons().add(new Image(new File("src/main/resources/com/example/icons/main/icon_app.png").toURI().toString()));
+        stage.setTitle("FinanceFlow");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-    }
-    @Override
-    public void stop() throws Exception {
-        File f = new File("src/main/resources/templates/");
-        File[] temps = f.listFiles();
-        if (temps.length != 0){
-            for (File temp : temps){
-                temp.delete();
-            }
-        }
-        super.stop();
     }
     public static void loadLoginFrame(){
         try{
@@ -69,7 +63,6 @@ public class HelloApplication extends Application {
     public static void loadMainApplication(){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("frame_main.fxml"));
-//            FXMLLoader.load(HelloApplication.class.getResource("settings.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
             stage.setScene(scene);
 

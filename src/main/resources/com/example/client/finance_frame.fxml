@@ -169,7 +169,7 @@
             </TabPane>
             <ImageView id="download-arrow" fx:id="downloadPDF" fitHeight="18.0" fitWidth="18.0" layoutX="167.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../icons/download_arrow.png" />
+                  <Image url="@../icons/main/download_arrow.png" />
                </image>
             </ImageView>
             <Label fx:id="generatedLabel" layoutX="205.0" layoutY="19.0" opacity="0.0" style="-fx-text-fill: green;" text="You generated a report!">

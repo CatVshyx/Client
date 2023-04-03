@@ -90,7 +90,6 @@ public class AddProductController extends PopUpUtility implements ControllerExte
         JSONObject json = new JSONObject(response.getDescription().toString());
         int productID = Integer.parseInt(json.get("id").toString());
         product.setId(productID);
-//        HelloApplication.getStorageController().addProductToTable(product);
         group.setVisible(false);
         confirmPane.setVisible(true);
         errorLabel.setVisible(true);

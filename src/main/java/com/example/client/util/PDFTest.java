@@ -13,6 +13,8 @@ import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.VerticalAlignment;
+
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
 import java.time.LocalDate;
@@ -113,7 +115,7 @@ public class PDFTest {
                 .setBorderBottom(new SolidBorder(new DeviceRgb(255,160,122),3) ))
                 .setBorder(Border.NO_BORDER)
         );
-        t.addCell(new Cell().add(addImage("C:/Users/Kaiwren/Desktop/report-logo.png",50,50)).setBorder(Border.NO_BORDER) );
+        t.addCell(new Cell().add(addImage(new File("src/main/resources/com/example/icons/report-logo.png").toURI().toString(),50,50)).setBorder(Border.NO_BORDER) );
         t.addCell(new Cell().add(new Paragraph(companyInfo).setFontSize(10)).setBorder(Border.NO_BORDER) );
         return t;
     }
