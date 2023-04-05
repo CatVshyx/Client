@@ -46,7 +46,7 @@ public class HelloApplication extends Application {
         initializeFrames();
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         HelloApplication.stage = stage;
-        stage.getIcons().add(new Image(new File("src/main/resources/com/example/icons/main/icon_app.png").toURI().toString()));
+        stage.getIcons().add(logInController.getImageIcon());
         stage.setTitle("FinanceFlow");
         stage.setScene(scene);
         stage.setResizable(false);

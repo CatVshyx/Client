@@ -13,6 +13,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -21,12 +23,14 @@ import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
 import javafx.scene.shape.Rectangle;
 import org.json.JSONObject;
+
 import java.net.URL;
 import java.util.*;
 import static com.example.client.controllers.SideBarController.*;
 
 public class LogInController implements Initializable {
-
+    @FXML
+    private ImageView logoView;
     @FXML
     private PasswordField Sconfirm;
 
@@ -412,6 +416,9 @@ public class LogInController implements Initializable {
         tabPane.getSelectionModel().select(0);
         onCreated.setVisible(true);
 
+    }
+    public Image getImageIcon(){
+        return logoView.getImage();
     }
 
     private boolean isFilled(){

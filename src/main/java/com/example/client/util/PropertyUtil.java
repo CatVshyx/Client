@@ -1,27 +1,17 @@
 package com.example.client.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PropertyUtil {
-    private static boolean isLoaded = false;
-    private final static Properties properties = new Properties();
+    private static HashMap<String,String> map = new HashMap<>(Map.of(
+            "apple.link", "https://www.youtube.com/watch?v=C9h6M7ELSCE",
+            "server.link","https://test-back-ncm8.onrender.com/"
+    ));
     private PropertyUtil()  {
     }
     public static String read(String property){
-        if (!isLoaded){
-            try {
-                FileInputStream fileInputStream = new FileInputStream("src/main/resources/com/example/examples/application.properties");
-                properties.load(fileInputStream);
-                isLoaded = true;
-            } catch (IOException ignored) {
 
-            }
-
-        }
-        return properties.getProperty(property);
+        return map.get(property);
     }
 }
