@@ -7,6 +7,8 @@ import com.example.client.model.RegistrationRequest;
 import com.example.client.service.HttpClientService;
 import com.example.client.service.LogInService;
 import com.example.client.service.Session;
+import com.example.client.util.Helper;
+import com.example.client.util.PropertyUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -197,9 +199,9 @@ public class LogInController implements Initializable {
                 loginPaneError.setVisible(false);
 
         });
-        downloadButton.setOnAction(action ->  SideBarController.openWebpage());
+        downloadButton.setOnAction(action ->  Helper.openWebpage(PropertyUtil.read("apple.link")));
         qCodeButton.setOnAction(actionEvent -> setQCodeAnimation());
-        hpLink.setOnAction(action -> openWebpage());
+        hpLink.setOnAction(action -> Helper.openWebpage(PropertyUtil.read("apple.link")));
         cancelCode.setOnAction(actionEvent -> paneWriteSentCode.setVisible(false));
         confirmLogin.setOnAction(action -> login(loginEmail.getText(),loginPassword.getText()));
         onCreated.setOnMouseEntered(action -> onCreated.setVisible(false));

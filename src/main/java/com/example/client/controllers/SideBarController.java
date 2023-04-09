@@ -3,6 +3,7 @@ package com.example.client.controllers;
 import com.example.client.HelloApplication;
 
 import com.example.client.additional.Response;
+import com.example.client.model.Currency;
 import com.example.client.model.MessagePopUp;
 import com.example.client.model.User;
 import com.example.client.service.AdministrationService;
@@ -10,6 +11,7 @@ import com.example.client.service.LogInService;
 import com.example.client.service.Session;
 import com.example.client.service.StorageService;
 import com.example.client.util.ConverterFactory;
+import com.example.client.util.Helper;
 import com.example.client.util.PropertyUtil;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
@@ -187,7 +189,7 @@ public class SideBarController {
                 });
             }
         });
-        downloadButton.setOnAction(actionEvent -> openWebpage());
+        downloadButton.setOnAction(actionEvent -> Helper.openWebpage(PropertyUtil.read("apple.link")));
         cancel.setOnAction(actionEvent -> {
             setSceneOpacity(1);
             log_out_frame.setVisible(false);
@@ -400,14 +402,6 @@ public class SideBarController {
         scale.setAutoReverse(false);
         scale.play();
     }
-    static void openWebpage() {
-        try{
-            Desktop desktop = Desktop.getDesktop();
-            desktop.browse(new URI(PropertyUtil.read("apple.link")));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
     public void setFirstScene() {
         // delete as a method and create a method with all frame-work-buttons or that kind of this to organize my class
@@ -444,23 +438,29 @@ public class SideBarController {
         new MessagePopUp(addFinancePane);
         configureHBox();
         closeAddFinance.setOnMouseClicked(action -> closeAddFinance());
-        uploadCurrency.setOnMouseClicked(action -> currencyRate.setText(String.valueOf(Math.random()*6)));
+        uploadCurrency.setOnMouseClicked(action -> {
+            Currency[] arr = ConverterFactory.findCurrencies(fieldFinance.getText().toUpperCase());
+            if (arr == null){
+                errorOnCurrency.setVisible(true);
+                errorOnCurrency.setText("Such currency not found");
+                return;
+            }
+            currencyRate.setText(String.valueOf(arr[0].getRate()));
+        });
         closeFinanceAdd.setOnAction(action -> {
             errorOnCurrency.setVisible(true);
-            if(!checkCurrencyLogic()) return;
-
-            addNewCurrency(fieldFinance.getText().toUpperCase());
+            if(!checkCurrencyFilled()) return;
+            boolean ans = addNewCurrency(fieldFinance.getText().toUpperCase(),Float.parseFloat(currencyRate.getText()));
             closeAddFinance();
         });
     }
-    private boolean checkCurrencyLogic(){
+    private boolean checkCurrencyFilled(){
         if(fieldFinance.getText().length() != 3){
             errorOnCurrency.setText("Name of the currency is 3 letters");
             return false;
         }
         else if(hBoxFinance.getChildren().size() == 6){
             errorOnCurrency.setText("The size can`t be more than 5");
-            // idea to bind visible property of label errors and their panes - so they can hide by themselves
             return false;
         }
         return true;
@@ -473,11 +473,12 @@ public class SideBarController {
         setSceneOpacity(1);
     }
     private void chooseCurrency(String name){
-        //  make it observable to my revenues and dates
+        //  make it observable to my revenues and datesS
+        System.out.println(name);
         FinanceController.setCurrentCurrency( ConverterFactory.getCurrency(name));
 
     }
-    private void addNewCurrency(String name){
+    private boolean addNewCurrency(String name, float rate){
         RadioButton newCurrency = new RadioButton(name);
         newCurrency.setPrefSize(60,30);
         newCurrency.getStyleClass().addAll("buttonWhite","custom-finance-box");
@@ -486,8 +487,9 @@ public class SideBarController {
             if (mouseEvent.getButton() != MouseButton.SECONDARY){ chooseCurrency(newCurrency.getText()); }
             else{hBoxFinance.getChildren().remove(newCurrency);}
         });
-        ConverterFactory.getCurrency(name);
+        ConverterFactory.addCurrencyToList(new Currency(name,rate));
         financeGroup.getToggles().add(newCurrency);
         hBoxFinance.getChildren().add(hBoxFinance.getChildren().size() - 1,newCurrency);
+        return true;
     }
 }

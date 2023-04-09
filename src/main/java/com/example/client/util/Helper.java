@@ -8,8 +8,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+
+import java.awt.*;
 import java.io.File;
 import java.io.InputStream;
+import java.net.URI;
 import java.time.LocalDate;
 import java.util.Properties;
 
@@ -70,4 +73,13 @@ public class Helper {
 
         return noContent;
     }
+    public static void openWebpage(String path) {
+        try{
+            Desktop desktop = Desktop.getDesktop();
+            desktop.browse(new URI(path));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }

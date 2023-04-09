@@ -52,7 +52,8 @@ public  class AdministrationService {
     public static InputStream getUserPhoto(String id){
         try {
             if (id == null){
-                File f = new File("src/main/resources/com/example/icons/default_user.png");
+                File f = new File("src/main/resources/com/example/icons/main/default_user.png");
+
                 return new FileInputStream(f);
             }
             return HttpClientService.getUserPhoto(id);

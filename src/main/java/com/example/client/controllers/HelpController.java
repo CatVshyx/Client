@@ -4,6 +4,7 @@ import com.example.client.HelloApplication;
 import com.example.client.model.MessagePopUp;
 import com.example.client.additional.ControllerExtension;
 import com.example.client.service.HttpClientService;
+import com.example.client.util.Helper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -17,8 +18,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.TextAlignment;
+
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.util.HashMap;
 
 public class HelpController implements ControllerExtension {
@@ -102,8 +106,12 @@ public class HelpController implements ControllerExtension {
                     splitPane.lookupAll(".split-pane-divider").forEach(div ->  div.setMouseTransparent(true) );
                 }
             }
-            setPicture((Circle) loader.getNamespace().get("devDima"), "src/main/resources/com/example/icons/main/devDima.jpg");
-            setPicture((Circle) loader.getNamespace().get("devVlad"), "src/main/resources/com/example/icons/main/devVlad.jpg");
+            Circle obj1 = (Circle) loader.getNamespace().get("devDima");
+            Circle obj2 = (Circle) loader.getNamespace().get("devVlad");
+            obj1.setOnMouseClicked(action -> Helper.openWebpage("https://github.com/CatVshyx"));
+            obj2.setOnMouseClicked(action -> Helper.openWebpage("https://github.com/Nems0n"));
+            setPicture(obj1, "src/main/resources/com/example/icons/main/devDima.jpg");
+            setPicture(obj2, "src/main/resources/com/example/icons/main/devVlad.jpg");
 
             HelloApplication.getSideBarController().addPane(pane);
         } catch (IOException e) {

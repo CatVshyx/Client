@@ -56,13 +56,8 @@ public class AdministrationController implements ControllerExtension {
 
     @FXML
     private AnchorPane mainPane;
-
     @FXML
     private MenuBar menuBar;
-
-    @FXML
-    private CheckBox positionBox;
-
     @FXML
     private CheckBox promo_edit;
 
@@ -94,8 +89,8 @@ public class AdministrationController implements ControllerExtension {
     private Button buttonCancel;
     @FXML
     private TextField emailField;
-    @FXML
-    private Pane invitePane;
+//    @FXML
+//    private Pane invitePane;
     @FXML
     private Label labelError;
 
@@ -150,6 +145,7 @@ public class AdministrationController implements ControllerExtension {
     }
     private void clearInvite(){
         emailField.setText(null);
+        labelError.setVisible(false);
         boxes.forEach(box -> box.setSelected(false));
     }
     void sortBySearch(String name){

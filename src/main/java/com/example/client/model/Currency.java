@@ -4,7 +4,7 @@ public class Currency  {
     // each currency echange equals to uah
     private String name;
     private float rate;
-
+    public Currency(){}
     public Currency(String name, float rate) {
         this.name = name;
         this.rate = rate;
@@ -24,5 +24,13 @@ public class Currency  {
 
     public void setRate(float rate) {
         this.rate = rate;
+    }
+
+    @Override
+    public String toString() {
+        return "Currency{" +
+                "name='" + name + '\'' +
+                ", rate=" + rate +
+                '}';
     }
 }

@@ -26,7 +26,7 @@ public class Session {
         // This method sets given data to all the services - discount admin, storage finance
         // if the user is a member of a company
         // and it sets session stream - another thread with Tasks (every 5 minutes sends request to update data )
-        System.out.println("set session " + company.toString() + "  \n user" + me.toString());
+
         Thread.getAllStackTraces().keySet().forEach(thread1 -> System.out.println("                   -"+thread1.getName()));
         myCompany = company;
         applicationMe = me;
@@ -34,6 +34,7 @@ public class Session {
             if(thread != null && thread.isAlive()){ thread.interrupt(); }
             return;
         }
+        System.out.println("set session " + company + "  \n user" + me);
         Set<Product> productSet = myCompany.getProducts();
         DiscountService.setData(productSet);
         StorageService.setData(productSet);

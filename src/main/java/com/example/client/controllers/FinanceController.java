@@ -100,15 +100,15 @@ public class FinanceController implements ControllerExtension {
     private Accordion accordion;
     @FXML
     private Label generatedLabel;
-    private static Currency curr = ConverterFactory.getCurrency("UAH");
+    private static Currency curr = ConverterFactory.getCurrency("USD");
     private static final SimpleStringProperty currencyProperty = new SimpleStringProperty(curr.getName());
     private static final SimpleFloatProperty rateProperty = new SimpleFloatProperty(curr.getRate());
     private final SimpleBooleanProperty isGenerated = new SimpleBooleanProperty(true);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d uuuu");
     public void initialize(){
         HelloApplication.setFinanceController(this);
+        Arrays.asList(currencyDay,currencyMonth,currencyWeek,currencyYear).forEach(curr -> curr.textProperty().bind(currencyProperty));
         downloadPDF.setOnMouseClicked(action -> {
-
             if(generatePDFFile())setTimeline().play();
         });
     }
@@ -123,7 +123,6 @@ public class FinanceController implements ControllerExtension {
         return fadeTransition;
     }
     private void configureInformationPanes(){
-        Arrays.asList(currencyDay,currencyMonth,currencyWeek,currencyYear).forEach(curr -> curr.textProperty().bind(currencyProperty));
         if (dates == null || dates.length == 0) return;
         LocalDate currDate = LocalDate.now();
         Stream<Date> stream = Arrays.stream(dates);
@@ -351,11 +350,9 @@ public class FinanceController implements ControllerExtension {
     public void clearData(){
         dates = null;
         Platform.runLater(() -> {
-        listWeeks.getItems().clear();
-        listYears.getItems().clear();
-        listMonths.getItems().clear();
-
-
+            listWeeks.getItems().clear();
+            listYears.getItems().clear();
+            listMonths.getItems().clear();
             paneWeek.getChildren().clear();
             monthPane.getChildren().clear();
             yearPane.getChildren().clear();
@@ -378,6 +375,7 @@ public class FinanceController implements ControllerExtension {
         curr = currency;
         currencyProperty.set(currency.getName());
         rateProperty.set(currency.getRate());
+        System.out.println(currencyProperty.get() + " " + rateProperty.get());
     }
     @Override
     public AnchorPane getFrame() {
