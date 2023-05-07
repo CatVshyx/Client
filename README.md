@@ -50,7 +50,7 @@ Backend: written on Spring Framework, [repository](https://github.com/CatVshyx/S
 This is the main menu of the app - storage frame. It shows what product you have, amount, price etc. It`s quite light and well-informative. Besides, here you can look up the products you are interested in, add new products if you are allowed and so on. 
 
 
-<center><img src="https://user-images.githubusercontent.com/47032134/236700162-72b08142-62ea-48ce-8516-2d0d0ab76782.gif" width="800" height="400"></center>
+<img src="https://user-images.githubusercontent.com/47032134/236700162-72b08142-62ea-48ce-8516-2d0d0ab76782.gif" width="1000" height="700">
 here is the short visualization how sorting products does.
 
 In each menu bar there are different types of things which can be sorted by you
