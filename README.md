@@ -45,7 +45,9 @@ Backend: written on Spring Framework, [repository](https://github.com/CatVshyx/S
 - Email consultation. You can write the issues/questions you have while working with the app. Your email will be sent to the server and saved. You will be given an answer onto your email.[More detailed description of this feature is written in telegramBot repo and Server repo]
 
 ## Screenshots
+<img src="https://user-images.githubusercontent.com/47032134/236699392-9a5bcdf1-49d2-40af-a354-e877b18b9f70.jpg" width="1000" height="600">
 
+![Screenshot_1](https://user-images.githubusercontent.com/47032134/236699392-9a5bcdf1-49d2-40af-a354-e877b18b9f70.jpg)
 [main menu - 1]
 
 This is the main menu of the app - storage frame. It shows what product you have, amount, price etc. It`s quite light and well-informative. Besides, here you can look up the products you are interested in, add new products if you are allowed and so on. 
