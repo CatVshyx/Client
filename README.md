@@ -1,15 +1,14 @@
 [app icon]
 # FinFlow application 
 
-A desktop finance app that helps people manipulate their products, discounts, revenues, etc. It is typically a tool designed to assist businesses in managing their financial operations. Such an app could help businesses optimize their pricing strategies, identify cost-saving opportunities, and track their revenues and expenses. A mobile application(iOS) was created by my 
-[teammate]:(https://github.com/Nems0n)
+A desktop finance app that helps people manipulate their products, discounts, revenues, etc. It is typically a tool designed to assist businesses in managing their financial operations. Such an app could help businesses optimize their pricing strategies, identify cost-saving opportunities, and track their revenues and expenses. A mobile application(iOS) was created by my [teammate](https://github.com/Nems0n)
 
 ## Installation
 
 -Clone the repository to your local folder [git clone https://github.com/CatVshyx/Client.git]
 
 
--Open command prompt in this folder and type 'mvn package' [If you don`t have Maven, install it on official website https://maven.apache.org/download.cgi] 
+-Open command prompt in this folder and type 'mvn package'. If you don`t have Maven, install it on [official website](https://maven.apache.org/download.cgi)
 
 -Then you will have a built jar project with naming 'some-name-jar-with-dependencies' in target folder. And since then you can already use it.
 
@@ -25,7 +24,7 @@ Architecture: MVC + Service Layer
 
 Libraries: JavaFX, Jackson Core, Jackson Datatype, ItextPDF
 
-Backend: written on Spring Framework [https://github.com/CatVshyx/SpringServer] 
+Backend: written on Spring Framework, [repository](https://github.com/CatVshyx/SpringServer) 
 
 ## Features
 
