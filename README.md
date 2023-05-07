@@ -51,13 +51,15 @@ Backend: written on Spring Framework, [repository](https://github.com/CatVshyx/S
 This is the main menu of the app - storage frame. It shows what product you have, amount, price etc. It`s quite light and well-informative. Besides, here you can look up the products you are interested in, add new products if you are allowed and so on. 
 
 [storage sort]
+
 here is the short visualization how sorting products does. In each menu bar there are different types of things which can be sorted by you
 [admin- 2 ]
+<img src="https://user-images.githubusercontent.com/47032134/236699785-6b897948-e40d-4a7e-b4c8-86b332645aad.jpg" width="1000" height="600">
 This administration pane. The second main pane where admins can view and edit profiles of the users. Besides, new users of your company can be invited here with two ways: specify roles of the future member or just invite by link
 [finance - 1]
-
+<img src="https://user-images.githubusercontent.com/47032134/236699775-bf107926-d8c1-42a7-9814-8d37598da666.jpg" width="1000" height="600">
 Revenues of a company are shown with charts and  statistics fields on the top. Each chart can be hidden/shown - just click on it the right bar. To download all the revenues - click on arrow and it will generate a pdf file on your desktop
-
-[help - gif] 
+<img src="https://user-images.githubusercontent.com/47032134/236699741-7fe7f500-73d3-46c7-ac2f-e7fbdfa793f8.gif" width="1000" height="600">
+[help] 
 
 Here is a presentation how help frame works - just ask a question and send it, that`s it! And in a couple of days you be answered.
