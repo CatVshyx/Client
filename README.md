@@ -46,14 +46,11 @@ Backend: written on Spring Framework, [repository](https://github.com/CatVshyx/S
 
 ## Screenshots
 <img src="https://user-images.githubusercontent.com/47032134/236699392-9a5bcdf1-49d2-40af-a354-e877b18b9f70.jpg" width="1000" height="600">
-
-![Screenshot_1](https://user-images.githubusercontent.com/47032134/236699392-9a5bcdf1-49d2-40af-a354-e877b18b9f70.jpg)
-[main menu - 1]
+[main menu]
 
 This is the main menu of the app - storage frame. It shows what product you have, amount, price etc. It`s quite light and well-informative. Besides, here you can look up the products you are interested in, add new products if you are allowed and so on. 
 
-[storage sort gif - 1]
-
+[storage sort]
 here is the short visualization how sorting products does. In each menu bar there are different types of things which can be sorted by you
 [admin- 2 ]
 This administration pane. The second main pane where admins can view and edit profiles of the users. Besides, new users of your company can be invited here with two ways: specify roles of the future member or just invite by link
