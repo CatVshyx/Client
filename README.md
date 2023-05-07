@@ -45,7 +45,7 @@ Backend: written on Spring Framework, [repository](https://github.com/CatVshyx/S
 
 - Different currency support. You can use/add currencies into Finance Pane. It uses Fixer API to get the latest currency values.
 
-- Email consultation. You can write the issues/questions you have while working with the app. Your email will be sent to the server and saved. You will be given an answer onto your email.[More detailed description of this feature is written in telegramBot repo and Server repo]
+- Email consultation. You can write the issues/questions you have while working with the app. Your email will be sent to the server and saved. You will be given an answer onto your email.[More detailed description of this feature is written in [telegramBot repo](https://github.com/CatVshyx/TelegramBot) and [Server repo](https://github.com/CatVshyx/SpringServe)]
 
 ## Screenshots
 <img src="https://user-images.githubusercontent.com/47032134/236699392-9a5bcdf1-49d2-40af-a354-e877b18b9f70.jpg" width="1000" height="600">
