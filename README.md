@@ -1,4 +1,6 @@
-[app icon]
+
+https://user-images.githubusercontent.com/47032134/236701078-5683f9dc-7d81-4397-847f-1a2634f0efe5.png
+<p align="center"><img src="https://user-images.githubusercontent.com/47032134/236701078-5683f9dc-7d81-4397-847f-1a2634f0efe5.png" width="150" height="150"></p>
 # FinFlow application 
 
 A desktop finance app that helps people manipulate their products, discounts, revenues, etc. It is typically a tool designed to assist businesses in managing their financial operations. Such an app could help businesses optimize their pricing strategies, identify cost-saving opportunities, and track their revenues and expenses. A mobile application(iOS) was created by my [teammate](https://github.com/Nems0n)
